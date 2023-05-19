@@ -1,0 +1,139 @@
+:root {
+  --main-color: #0db0b9;
+  --gray-color: #aaadae;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  color: azure;
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lora", serif;
+}
+
+.body-wrapper {
+  background-color: black;
+}
+.hero-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.hero-wrapper {
+  position: relative;
+  min-height: 800px;
+  background-image: url("/img/No123-2048w-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hero {
+  position: absolute;
+  /* top: 40%;
+  left: 22%;
+  transform: translate(-50%, -50%);*/
+  top: 200px;
+  left: 100px;
+  z-index: 1;
+  max-width: 500px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.hero .detail {
+  font-size: 11px;
+  margin: 5px;
+  color: var(--gray-color);
+}
+
+.hero .plot {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 8px 5px 25px;
+}
+
+.hero .creator,
+.hero .starts {
+  font-size: 13px;
+}
+
+.hero .creator-title,
+.hero .starts-title {
+  color: var(--main-color);
+}
+
+.hero .buttons {
+  margin-top: 20px;
+}
+
+.hero .watch-now {
+  padding: 10px 15px;
+  font-size: 14px;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero .watch-now:hover {
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+}
+
+.hero .read-more {
+  margin-left: 15px;
+  padding: 10px 15px;
+  font-size: 14px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero .read-more:hover {
+  background-color: var(--main-color);
+}
+
+.hero a {
+  text-decoration: none;
+  color: white;
+}
+
+.hero a:hover {
+  color: var(--gray-color);
+}
+
+.hero .rate-container {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 12px;
+}
