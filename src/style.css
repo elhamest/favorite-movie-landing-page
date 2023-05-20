@@ -52,10 +52,10 @@ h6 {
   /* top: 40%;
   left: 22%;
   transform: translate(-50%, -50%);*/
-  top: 200px;
-  left: 100px;
+  top: 180px;
+  left: 130px;
   z-index: 1;
-  max-width: 500px;
+  max-width: 550px;
 }
 
 .hero h1 {
@@ -136,4 +136,36 @@ h6 {
   align-items: center;
   margin-top: 10px;
   font-size: 12px;
+}
+
+.social-link {
+  position: fixed;
+  top: 50%;
+  z-index: 5;
+  opacity: 80%;
+}
+.social-link ul {
+  margin: 0;
+  padding: 10px 10px 10px 20px;
+}
+
+.social-link ul li {
+  list-style-type: none;
+  padding: 10px;
+  color: var(--gray-color);
+}
+
+.social-link .vertical-line {
+  height: 120px;
+  border-left: 1px solid var(--gray-color);
+  margin-left: 37px;
+}
+
+.social-link ul a,
+.social-link ul a:active {
+  color: var(--gray-color);
+}
+
+.social-link ul a:hover {
+  color: var(--main-color);
 }
