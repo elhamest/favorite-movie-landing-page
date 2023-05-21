@@ -29,7 +29,7 @@ h6 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 60%;
   height: 100%;
   background-image: linear-gradient(
     to right,
@@ -49,11 +49,12 @@ h6 {
 
 .hero {
   position: absolute;
-  /* top: 40%;
-  left: 22%;
-  transform: translate(-50%, -50%);*/
-  top: 180px;
+  top: 40%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+  /*top: 180px;
   left: 130px;
+*/
   z-index: 1;
   max-width: 550px;
 }
@@ -78,13 +79,18 @@ h6 {
 }
 
 .hero .creator,
-.hero .starts {
+.hero .star {
   font-size: 13px;
 }
 
 .hero .creator-title,
-.hero .starts-title {
+.hero .star-title {
   color: var(--main-color);
+}
+
+.hero .star-link,
+.hero .creator-link {
+  color: var(--gray-color);
 }
 
 .hero .buttons {
@@ -137,7 +143,7 @@ h6 {
   margin-top: 10px;
   font-size: 12px;
 }
-
+/*=====================*/
 .social-link {
   position: fixed;
   top: 50%;
@@ -168,4 +174,40 @@ h6 {
 
 .social-link ul a:hover {
   color: var(--main-color);
+}
+/*=====================*/
+.menu {
+  text-align: center;
+  position: fixed;
+  top: 20px;
+  left: 35%;
+  z-index: 5;
+}
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.menu ul li {
+  font-size: 13px;
+  display: inline-block;
+  padding: 0 20px 0;
+  text-align: center;
+  min-width: 25px;
+  letter-spacing: 1px;
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.menu a:hover,
+.menu a:active {
+  color: white;
+  border-bottom: 2px solid var(--main-color);
+}
+
+.menu ul li:not(:last-child) {
+  border-right: 1px solid var(--gray-color);
 }
