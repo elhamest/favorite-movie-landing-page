@@ -22,14 +22,24 @@ h6 {
 }
 
 .body-wrapper {
-  background-color: black;
+  position: relative;
 }
-.hero-wrapper::before {
+
+.hero-wrapper {
+  position: relative;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*height: 100vh;*/ /*I comment this*/
+}
+
+.hero-container::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 60%;
+  width: 80%;
   height: 100%;
   background-image: linear-gradient(
     to right,
@@ -38,25 +48,35 @@ h6 {
   );
 }
 
-.hero-wrapper {
-  position: relative;
-  min-height: 800px;
-  background-image: url("/img/No123-2048w-2.jpg");
+.hero-container {
+  width: 1200px;
+  min-height: 700px;
+  background-image: url("/img/No17-2048w-croped.jpg"); /*url("/img/No17-2048w-croped.jpg");*/
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+.hero-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+}
+
 .hero {
   position: absolute;
-  top: 40%;
-  left: 28%;
-  transform: translate(-50%, -50%);
-  /*top: 180px;
-  left: 130px;
-*/
+  top: 29%;
+  margin-left: 30px;
+  max-width: 500px;
   z-index: 1;
-  max-width: 550px;
 }
 
 .hero h1 {
@@ -143,45 +163,15 @@ h6 {
   margin-top: 10px;
   font-size: 12px;
 }
+
 /*=====================*/
-.social-link {
-  position: fixed;
-  top: 50%;
-  z-index: 5;
-  opacity: 80%;
-}
-.social-link ul {
-  margin: 0;
-  padding: 10px 10px 10px 20px;
-}
 
-.social-link ul li {
-  list-style-type: none;
-  padding: 10px;
-  color: var(--gray-color);
-}
-
-.social-link .vertical-line {
-  height: 120px;
-  border-left: 1px solid var(--gray-color);
-  margin-left: 37px;
-}
-
-.social-link ul a,
-.social-link ul a:active {
-  color: var(--gray-color);
-}
-
-.social-link ul a:hover {
-  color: var(--main-color);
-}
-/*=====================*/
 .menu {
   text-align: center;
   position: fixed;
   top: 20px;
-  left: 35%;
   z-index: 5;
+  left: 100px;
 }
 .menu ul {
   margin: 0;
@@ -211,3 +201,40 @@ h6 {
 .menu ul li:not(:last-child) {
   border-right: 1px solid var(--gray-color);
 }
+
+/*=====================*/
+
+.social-link {
+  position: fixed;
+  top: 45%;
+  left: 40px;
+  z-index: 5;
+  opacity: 80%;
+}
+.social-link ul {
+  margin: 0;
+  padding: 10px 10px 10px 20px;
+}
+
+.social-link ul li {
+  list-style-type: none;
+  padding: 10px;
+  color: var(--gray-color);
+}
+
+.social-link .vertical-line {
+  height: 140px;
+  border-left: 1px solid var(--gray-color);
+  margin-left: 38px;
+}
+
+.social-link ul a,
+.social-link ul a:active {
+  color: var(--gray-color);
+}
+
+.social-link ul a:hover {
+  color: var(--main-color);
+}
+
+/*=====================*/
