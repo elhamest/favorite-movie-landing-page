@@ -1,5 +1,7 @@
 :root {
   --main-color: #0db0b9;
+  --dark-color: #011415;
+
   --gray-color: #aaadae;
 }
 
@@ -7,7 +9,6 @@ body {
   margin: 0;
   min-height: 100vh;
   box-sizing: border-box;
-  color: azure;
   font-family: Arial, Helvetica, sans-serif;
   font-family: "Open Sans", sans-serif;
 }
@@ -21,11 +22,19 @@ h6 {
   font-family: "Lora", serif;
 }
 
+h2 {
+  color: var(--dark-color);
+  margin: 0;
+}
+
 .body-wrapper {
   position: relative;
 }
 
+/*=====================*/
+
 .hero-wrapper {
+  color: azure;
   position: relative;
   background-color: black;
   display: flex;
@@ -50,7 +59,7 @@ h6 {
 
 .hero-container {
   width: 1200px;
-  min-height: 700px;
+  min-height: 650px;
   background-image: url("/img/No17-2048w-croped.jpg"); /*url("/img/No17-2048w-croped.jpg");*/
   background-size: cover;
   background-repeat: no-repeat;
@@ -62,7 +71,7 @@ h6 {
   position: absolute;
   top: 0;
   right: 0;
-  width: 45%;
+  width: 35%;
   height: 100%;
   background-image: linear-gradient(
     to left,
@@ -74,7 +83,6 @@ h6 {
 .hero {
   position: absolute;
   top: 29%;
-  margin-left: 30px;
   max-width: 500px;
   z-index: 1;
 }
@@ -171,7 +179,7 @@ h6 {
   position: fixed;
   top: 20px;
   z-index: 5;
-  left: 100px;
+  left: 80px;
 }
 .menu ul {
   margin: 0;
@@ -238,3 +246,67 @@ h6 {
 }
 
 /*=====================*/
+
+.main-wrapper {
+  width: 80%;
+  margin: 40px auto;
+}
+
+/*=====================*/
+
+.photo-wrapper {
+  margin: 0 30px;
+  height: 250px;
+  position: relative;
+}
+
+.photo-wrapper .switch-left,
+.photo-wrapper .switch-right {
+  color: var(--main-color);
+  height: 100%;
+  width: 45px;
+  line-height: 250px;
+  top: 0;
+}
+
+.photo-wrapper .switch-left {
+  position: absolute;
+  left: -50px;
+}
+
+.photo-wrapper .switch-right {
+  position: absolute;
+  right: -50px;
+}
+
+.photo-container {
+  height: 250px;
+  width: auto;
+  overflow: hidden; /*scroll*/
+  white-space: nowrap;
+  text-align: center;
+  /*padding-bottom: 10px;*/
+  display: flex;
+  align-items: center;
+}
+
+.photo-container img {
+  /*min-width: 147px;
+  max-width: 147px;
+  height: 200px;*/
+  min-width: 250px;
+  max-width: 250px;
+  height: 166.66px;
+  background-size: cover;
+  background-color: blueviolet;
+  margin: 10px 5px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  z-index: 2;
+  border-radius: 4px;
+}
+
+.photo-container img:hover {
+  transform: scale(1.2);
+  z-index: 5;
+}
