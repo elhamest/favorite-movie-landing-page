@@ -1,7 +1,6 @@
 :root {
   --main-color: #0db0b9;
   --dark-color: #011415;
-
   --gray-color: #aaadae;
 }
 
@@ -23,7 +22,12 @@ h6 {
 }
 
 h2 {
-  color: var(--dark-color);
+  font-size: 30px;
+  text-align: center;
+  background: -webkit-linear-gradient(#9becfc, var(--main-color));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0;
 }
 
@@ -133,6 +137,7 @@ h2 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: 0 2.8px 2.2px rgba(192, 228, 234, 0.1);
 }
 
 .hero .watch-now:hover {
@@ -214,8 +219,8 @@ h2 {
 
 .social-link {
   position: fixed;
-  top: 45%;
-  left: 40px;
+  top: 20%;
+  right: 40px;
   z-index: 5;
   opacity: 80%;
 }
@@ -247,26 +252,18 @@ h2 {
 
 /*=====================*/
 
-.main-wrapper {
-  width: 80%;
-  margin: 40px auto;
-}
-
-/*=====================*/
-
 .photo-wrapper {
-  margin: 0 30px;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 30px;
   height: 250px;
   position: relative;
 }
 
 .photo-wrapper .switch-left,
 .photo-wrapper .switch-right {
-  color: var(--main-color);
-  height: 100%;
   width: 45px;
-  line-height: 250px;
-  top: 0;
+  top: 140px;
 }
 
 .photo-wrapper .switch-left {
@@ -280,7 +277,7 @@ h2 {
 }
 
 .photo-container {
-  height: 250px;
+  height: 230px;
   width: auto;
   overflow: hidden; /*scroll*/
   white-space: nowrap;
@@ -298,7 +295,6 @@ h2 {
   max-width: 250px;
   height: 166.66px;
   background-size: cover;
-  background-color: blueviolet;
   margin: 10px 5px;
   cursor: pointer;
   transition: 0.5s ease;
@@ -310,3 +306,21 @@ h2 {
   transform: scale(1.2);
   z-index: 5;
 }
+
+/*=====================
+
+.trailer-wrapper {
+  padding-top: 30px;
+  margin: 40px 0;
+  background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(6, 10, 11) 0%,
+    rgb(0, 0, 0) 99.4%
+  );
+}
+
+.trailer-container {
+  width: 80%;
+  margin: 30px auto 0;
+}
+*/
