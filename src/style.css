@@ -129,14 +129,18 @@ h2 {
   margin-top: 20px;
 }
 
-.hero .watch-now {
-  padding: 10px 15px;
+.hero .watch-now,
+.hero .read-more {
+  padding: 10px 18px;
   font-size: 14px;
-  background-color: var(--main-color);
   color: white;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.hero .watch-now {
+  background-color: var(--main-color);
+  border: none;
   box-shadow: 0 2.8px 2.2px rgba(192, 228, 234, 0.1);
 }
 
@@ -147,13 +151,8 @@ h2 {
 
 .hero .read-more {
   margin-left: 15px;
-  padding: 10px 15px;
-  font-size: 14px;
   background-color: transparent;
-  color: white;
   border: 1px solid var(--main-color);
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .hero .read-more:hover {
@@ -219,7 +218,7 @@ h2 {
 
 .social-link {
   position: fixed;
-  top: 20%;
+  top: 18%;
   right: 40px;
   z-index: 5;
   opacity: 80%;
@@ -252,7 +251,7 @@ h2 {
 
 /*=====================*/
 
-.photo-wrapper {
+.gallery-wrapper {
   width: 80%;
   margin: 0 auto;
   padding-top: 30px;
@@ -260,26 +259,26 @@ h2 {
   position: relative;
 }
 
-.photo-wrapper .switch-left,
-.photo-wrapper .switch-right {
+.gallery-wrapper .switch-left,
+.gallery-wrapper .switch-right {
   width: 45px;
   top: 140px;
 }
 
-.photo-wrapper .switch-left {
+.gallery-wrapper .switch-left {
   position: absolute;
   left: -50px;
 }
 
-.photo-wrapper .switch-right {
+.gallery-wrapper .switch-right {
   position: absolute;
   right: -50px;
 }
 
-.photo-container {
+.gallery-container {
   height: 230px;
   width: auto;
-  overflow: hidden; /*scroll*/
+  overflow: hidden;
   white-space: nowrap;
   text-align: center;
   /*padding-bottom: 10px;*/
@@ -287,10 +286,7 @@ h2 {
   align-items: center;
 }
 
-.photo-container img {
-  /*min-width: 147px;
-  max-width: 147px;
-  height: 200px;*/
+.gallery-container img {
   min-width: 250px;
   max-width: 250px;
   height: 166.66px;
@@ -307,7 +303,7 @@ h2 {
   z-index: 5;
 }
 
-/*=====================
+/*=====================*/
 
 .trailer-wrapper {
   padding-top: 30px;
@@ -320,7 +316,13 @@ h2 {
 }
 
 .trailer-container {
-  width: 80%;
   margin: 30px auto 0;
+  width: 80%;
+  max-width: 700px;
 }
-*/
+
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
