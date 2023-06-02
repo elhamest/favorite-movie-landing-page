@@ -1,3 +1,8 @@
+window.addEventListener("scroll", function () {
+  var header = document.querySelector(".menu");
+  header.classList.toggle("sticky", window.scrollY > 0);
+});
+
 const sliders = document.querySelector(".photo-container");
 
 var imagePadding = 20;

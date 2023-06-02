@@ -3,12 +3,13 @@
   --dark-color: #011415;
   --gray-color: #aaadae;
 }
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 200vh; /*man 100vh gozashte boodam*/
   font-family: "Open Sans", sans-serif;
 }
 
@@ -30,7 +31,6 @@ h2 {
   -webkit-text-fill-color: transparent;
   margin: 0;
 }
-
 .body-wrapper {
   position: relative;
 }
@@ -62,9 +62,9 @@ h2 {
 }
 
 .hero-container {
-  width: 1200px;
-  min-height: 650px;
-  background-image: url("/img/No17-2048w-croped.jpg"); /*url("/img/No17-2048w-croped.jpg");*/
+  width: 1300px;
+  min-height: 700px;
+  background-image: url("/img/No17-2048w-croped.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -86,7 +86,7 @@ h2 {
 
 .hero {
   position: absolute;
-  top: 29%;
+  top: 32%;
   max-width: 500px;
   z-index: 1;
 }
@@ -179,34 +179,67 @@ h2 {
 /*=====================*/
 
 .menu {
-  text-align: center;
   position: fixed;
-  top: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.6s; /*kari nemikone*/
   z-index: 5;
-  left: 80px;
-}
-.menu ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-.menu ul li {
-  font-size: 13px;
-  display: inline-block;
-  padding: 0 20px 0;
-  text-align: center;
-  min-width: 25px;
-  letter-spacing: 1px;
-}
-.menu a {
-  color: white;
-  text-decoration: none;
-  padding-bottom: 5px;
+  padding: 30px 100px; /*???????*/
 }
 
-.menu a:hover,
-.menu a:active {
-  color: white;
+.menu.sticky {
+  padding: 5px 100px;
+  background: #fff;
+}
+
+.menu-logo {
+  position: relative; /*kari nemikone*/
+  transition: 0.6s; /*kari nemikone*/
+}
+
+.menu ul {
+  position: relative; /*kari nemikone*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.menu ul li {
+  position: relative; /*kari nemikone*/
+  list-style: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  min-width: 25px;
+}
+
+.menu ul li a {
+  position: relative; /*kari nemikone*/
+  margin: 0 30px;
+  color: #fff;
+  text-decoration: none;
+  padding-bottom: 5px;
+  font-weight: 600px;
+  transition: 0.6s;
+}
+
+.menu.sticky ul li a {
+  color: #000;
+}
+
+.menu ul li a:hover,
+.menu ul li a:active {
+  color: #fff;
+  border-bottom: 2px solid var(--main-color);
+}
+
+.menu.sticky ul li a:hover,
+.menu.sticky ul li a:active {
+  color: #000;
   border-bottom: 2px solid var(--main-color);
 }
 
@@ -218,7 +251,7 @@ h2 {
 
 .social-link {
   position: fixed;
-  top: 18%;
+  top: 32%;
   right: 40px;
   z-index: 5;
   opacity: 80%;
@@ -254,15 +287,20 @@ h2 {
 .gallery-wrapper {
   width: 80%;
   margin: 0 auto;
-  padding-top: 30px;
-  height: 250px;
+  margin-top: 20px;
+  padding-top: 20px;
+  height: 260px;
   position: relative;
 }
 
 .gallery-wrapper .switch-left,
 .gallery-wrapper .switch-right {
-  width: 45px;
+  width: 40px;
   top: 140px;
+}
+.gallery-wrapper .switch-left img,
+.gallery-wrapper .switch-right img {
+  width: 40px;
 }
 
 .gallery-wrapper .switch-left {
@@ -281,7 +319,6 @@ h2 {
   overflow: hidden;
   white-space: nowrap;
   text-align: center;
-  /*padding-bottom: 10px;*/
   display: flex;
   align-items: center;
 }
@@ -298,7 +335,7 @@ h2 {
   border-radius: 4px;
 }
 
-.photo-container img:hover {
+.gallery-container img:hover {
   transform: scale(1.2);
   z-index: 5;
 }
@@ -306,8 +343,8 @@ h2 {
 /*=====================*/
 
 .trailer-wrapper {
-  padding-top: 30px;
   margin: 40px 0;
+  padding-top: 30px;
   background: radial-gradient(
     circle at 24.1% 68.8%,
     rgb(6, 10, 11) 0%,

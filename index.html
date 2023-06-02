@@ -20,14 +20,17 @@
   <body>
     <div class="body-wrapper">
       <!----- menu ----->
-      <div class="menu">
+      <header class="menu">
+        <a href="/" title="Homepage" class="menu-logo">
+          <img src="/img/logo.svg" type="image/svg+xml" />
+        </a>
         <ul>
-          <li><a>Home</a></li>
-          <li><a>Gallery</a></li>
-          <li><a>Trailer</a></li>
-          <li><a>Contact</a></li>
+          <li><a href="/" title="Homepage">Home</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#trailer">Trailer</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-      </div>
+      </header>
 
       <!----- social link ----->
       <div class="social-link">
@@ -140,7 +143,7 @@
       </div>
 
       <!----- gallery ----->
-      <div class="gallery-wrapper">
+      <div class="gallery-wrapper" id="gallery">
         <h2>Gallery</h2>
         <div class="gallery-container">
           <img src="/img/600/5.jpg" alt="test" />
@@ -180,8 +183,9 @@
           <img src="img/right-50.png" />
         </span>
       </div>
+
       <!---- trailer ---->
-      <div class="trailer-wrapper">
+      <div class="trailer-wrapper" id="trailer">
         <h2>Trailer</h2>
 
         <div class="trailer-container">
@@ -210,6 +214,7 @@
       <!---->
     </div>
 
+    <div id="contact"></div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
       integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
