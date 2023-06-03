@@ -140,13 +140,12 @@ h2 {
 
 .hero .watch-now {
   background-color: var(--main-color);
-  border: none;
+  border: 1px solid var(--main-color);
   box-shadow: 0 2.8px 2.2px rgba(192, 228, 234, 0.1);
 }
 
 .hero .watch-now:hover {
   background-color: transparent;
-  border: 1px solid var(--main-color);
 }
 
 .hero .read-more {

@@ -3,8 +3,9 @@ window.addEventListener("scroll", function () {
   header.classList.toggle("sticky", window.scrollY > 0);
 });
 
-const sliders = document.querySelector(".photo-container");
+/*-----*/
 
+const sliders = document.querySelector(".gallery-container");
 var imagePadding = 20;
 var scrollPerClick = 250 + imagePadding;
 var scrollAmount = 0;
@@ -35,6 +36,25 @@ function sliderScrollRight() {
     });
   }
 }
+
+const navLinks = document.querySelectorAll(".menu ul li a");
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
+    const topOffset = targetElement.offsetTop;
+    window.scrollTo({ top: topOffset, behavior: "smooth" });
+  });
+});
+
+const homepage = document.getElementById("homepage");
+
+homepage.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 /*
 showMovieData();
