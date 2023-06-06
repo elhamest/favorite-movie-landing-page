@@ -60,16 +60,16 @@ homepage.addEventListener("click", (e) => {
 /*-----*/
 
 const hamburgerElement = document.querySelector("#hamburger");
-const navbarManuElement = document.querySelector(".navbar-container");
+const navbarContainerElement = document.querySelector(".navbar-container");
 hamburgerElement.addEventListener("click", () => {
   hamburgerElement.classList.toggle("active");
-  navbarManuElement.classList.toggle("active");
+  navbarContainerElement.classList.toggle("active");
 });
 
 document.querySelectorAll(".navbar-item-link").forEach((n) =>
   n.addEventListener("click", () => {
     hamburgerElement.classList.remove("active");
-    navbarManuElement.classList.remove("active");
+    navbarContainerElement.classList.remove("active");
   }),
 );
 /*
