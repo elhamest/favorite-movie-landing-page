@@ -20,16 +20,47 @@
   <body>
     <div class="body-wrapper">
       <!----- menu ----->
-      <header class="menu">
-        <a href="/#" title="Homepage" class="menu-logo">
-          <img src="/img/logo.svg" type="image/svg+xml" />
-        </a>
-        <ul>
-          <li><a href="#" title="Homepage" id="homepage">Home</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#trailer">Trailer</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      <header>
+        <nav class="navbar" id="navbar">
+          <a href="/#" title="Homepage" id="homepage" class="navbar-logo"></a>
+          <div class="hamburger" id="hamburger"><i class="fa fa-bars"></i></div>
+
+          <div class="navbar-container">
+            <ul class="navbar-menu" id="navbar-menu">
+              <li class="navbar-item">
+                <a href="#homepage" title="Homepage" class="navbar-item-link"
+                  >Home</a
+                >
+              </li>
+              <li class="navbar-item">
+                <a href="#gallery" class="navbar-item-link">Gallery</a>
+              </li>
+              <li class="navbar-item">
+                <a href="#trailer" class="navbar-item-link">Trailer</a>
+              </li>
+              <li class="navbar-item">
+                <a href="#contact" class="navbar-item-link">Contact</a>
+              </li>
+              <!--<div class="close-menu" id="close-menu">
+                <i class="fa fa-times"></i>
+              </div>-->
+            </ul>
+            <div class="social-icon">
+              <span class="social-icon-item"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></span>
+              <span class="social-icon-item"
+                ><i class="fa-brands fa-github"></i
+              ></span>
+              <span class="social-icon-item"
+                ><i class="fa-regular fa-envelope"></i
+              ></span>
+              <span class="social-icon-item"
+                ><i class="fa-brands fa-telegram"></i
+              ></span>
+            </div>
+          </div>
+        </nav>
       </header>
 
       <!----- social link ----->

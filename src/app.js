@@ -1,5 +1,5 @@
 window.addEventListener("scroll", function () {
-  var header = document.querySelector(".menu");
+  var header = document.querySelector("#navbar");
   header.classList.toggle("sticky", window.scrollY > 0);
 });
 
@@ -37,7 +37,9 @@ function sliderScrollRight() {
   }
 }
 
-const navLinks = document.querySelectorAll(".menu ul li a");
+/*-----*/
+
+const navLinks = document.querySelectorAll(".navbar-item-link");
 
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
@@ -55,7 +57,21 @@ homepage.addEventListener("click", (e) => {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+/*-----*/
 
+const hamburgerElement = document.querySelector("#hamburger");
+const navbarManuElement = document.querySelector(".navbar-container");
+hamburgerElement.addEventListener("click", () => {
+  hamburgerElement.classList.toggle("active");
+  navbarManuElement.classList.toggle("active");
+});
+
+document.querySelectorAll(".navbar-item-link").forEach((n) =>
+  n.addEventListener("click", () => {
+    hamburgerElement.classList.remove("active");
+    navbarManuElement.classList.remove("active");
+  }),
+);
 /*
 showMovieData();
 

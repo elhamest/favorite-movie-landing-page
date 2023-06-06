@@ -7,7 +7,7 @@
       opacity="1" transform="matrix(1,0,0,1,0,0)" fill="#aaadae" data-fill-palette-color="primary" />
   </g>
 
-  <g transform="translate(200 5), scale(1)" height="78" width="76">
+  <g transform="translate(200 5), scale(1)" height="75" width="75">
 
     <rect x="34.571" y="16.321" fill="#0db0b9" width="5.716" height="5.716"
       data-fill-palette-color="accent" />
