@@ -57,6 +57,7 @@ homepage.addEventListener("click", (e) => {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 /*-----*/
 
 const hamburgerElement = document.querySelector("#hamburger");
@@ -72,6 +73,23 @@ document.querySelectorAll(".navbar-item-link").forEach((n) =>
     navbarContainerElement.classList.remove("active");
   }),
 );
+
+/*-----*/
+
+const submitElement = document.querySelector("#submit");
+submitElement.addEventListener("click", (event) => {
+  const userEmail = document.querySelector("#email").value;
+
+  event.preventDefault();
+  if (userEmail.includes("@") && userEmail.includes(".com")) {
+    alert(
+      `Thank you for getting in touch with us, ${userEmail}! We will get back to you as soon as possible.`,
+    );
+  } else {
+    alert("Please enter a valid email.");
+  }
+});
+
 /*
 showMovieData();
 
