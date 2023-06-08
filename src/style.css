@@ -42,6 +42,7 @@ h2 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  user-select: none;
 }
 
 /*=====================*/
@@ -291,6 +292,7 @@ h2 {
   list-style-type: none;
   padding: 10px;
   color: var(--gray-color);
+  user-select: none;
 }
 
 .social-link-bar .vertical-line {
@@ -318,6 +320,7 @@ h2 {
   padding-top: 20px;
   height: 260px;
   position: relative;
+  user-select: none;
 }
 
 .gallery-wrapper .switch-left,
@@ -328,6 +331,7 @@ h2 {
 .gallery-wrapper .switch-left img,
 .gallery-wrapper .switch-right img {
   width: 40px;
+  user-select: none;
 }
 
 .gallery-wrapper .switch-left {
@@ -404,6 +408,7 @@ footer a:hover {
 .footer-link {
   display: flex;
   flex-direction: column;
+  user-select: none;
 }
 
 .footer-link i {
@@ -461,6 +466,7 @@ footer .designed-by {
   cursor: pointer;
   margin-left: -40px;
   padding: 10px;
+  user-select: none;
 }
 
 .input-container button[type="submit"]:hover {
@@ -507,6 +513,7 @@ footer .designed-by {
 }
 .quote h3 {
   color: var(--main-color);
+  user-select: none;
 }
 
 .quote .quote-text {
@@ -519,6 +526,7 @@ footer .designed-by {
   display: flex;
   justify-content: space-between;
   color: var(--main-color);
+  user-select: none;
 }
 
 .quote .quote-info-next {
@@ -649,6 +657,7 @@ footer .designed-by {
     background-repeat: no-repeat;
     width: 250px;
     height: 55px;
+    user-select: none;
   }
 
   .navbar .navbar-item {
