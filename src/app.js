@@ -89,6 +89,39 @@ submitElement.addEventListener("click", (event) => {
     alert("Please enter a valid email.");
   }
 });
+/*-----*/
+
+const funnyText = [
+  "Emotions can’t be allowed to interfere with what is right.<br/>(John Smith)",
+  "A man is only ever as strong as the people around him: The community he serves and the family he is sworn to protect. Whatever strength he has, he draws from them. And for them, he must be prepared to give everything.<br/>(John Smith)",
+  "People are capable of anything. Especially when they’re desperate.<br/>(Joe Blake)",
+  "We’ve seen things, you and me. Other worlds. Other lives. We have that in common. It’s unbearable. To be able to look through that door and glimpse all the people you could have been. And to know that out of all of them, this is the one you became.<br/>(John Smith)",
+  "This place and this world will not last if we don’t change it for the better. It’s only a matter of time; it will get worse.<br/>(Juliana Crain)",
+  "The only way to view the truth of life, is to stand apart from it, to see the consequence of every thought, every action. But still, we are bound by time and space, unable to steer our destiny.<br/>(Nobusuke Tagomi)",
+  "We all have flaws, all of us, every single one of us. It makes us who we are.<br/>(Juliana Crain)",
+  "The cultures we were born into mean that we do things differently. And yet I suspect that we also hold many of the same things in the highest esteem.<br/>(Nobusuke Tagomi)",
+  "You don’t need anybody to keep you down because you got your own little inner fascist right there telling you what you can and cannot do. That’s how you let them win.<br/>(Mark Sampson)",
+  "There comes a time when all men must bear the weight of their responsibility.<br/>(Inspector Kido)",
+  "It takes a lot of effort not to be free. I kept my head down for so long, I forgot what it feels like to stand up.<br/>(Frank Frink)",
+];
+const quoteInfoNextElement = document.getElementById("quote-info-next");
+quoteInfoNextElement.addEventListener("click", showQuote);
+const quoteTextElement = document.getElementById("quote-text");
+const quoteInfoNoElement = document.getElementById("quote-info-no");
+
+var funnyTextIndex = 1;
+
+function showQuote() {
+  if (funnyTextIndex === 10) {
+    funnyTextIndex = 0;
+  }
+  quoteTextElement.innerHTML = funnyText[funnyTextIndex];
+  console.log(funnyTextIndex);
+  console.log(`(${funnyTextIndex + 1}/5)`);
+  quoteInfoNoElement.textContent = `(${funnyTextIndex + 1}/10)`;
+  funnyTextIndex += 1;
+}
+/*-----*/
 
 /*
 showMovieData();

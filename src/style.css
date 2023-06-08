@@ -22,6 +22,12 @@ h5,
 h6 {
   font-family: "Lora", serif;
 }
+h1 {
+  font-size: 36px;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
 
 h2 {
   font-size: 25px;
@@ -71,7 +77,6 @@ h2 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  /*new*/
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -94,20 +99,10 @@ h2 {
 }
 
 .hero {
-  /*new*/
   align-self: center;
-  /* position: absolute;
-  top: 32%;*/
   margin-left: 70px;
   max-width: 500px;
   z-index: 1;
-}
-
-.hero h1 {
-  font-size: 36px;
-  color: white;
-  margin-top: 0;
-  margin-bottom: 18px;
 }
 
 .hero .detail {
@@ -317,6 +312,7 @@ h2 {
 
 .gallery-wrapper {
   width: 75%;
+  min-width: 360px;
   margin: 0 auto;
   margin-top: 20px;
   padding-top: 20px;
@@ -370,47 +366,6 @@ h2 {
   transform: scale(1.2);
   z-index: 5;
 }
-
-/*=====================*/
-
-.trailer-wrapper {
-  margin: 40px 0;
-  padding-top: 30px;
-  background: radial-gradient(
-    circle at 24.1% 68.8%,
-    rgb(6, 10, 11) 0%,
-    rgb(0, 0, 0) 99.4%
-  );
-}
-
-.trailer-container {
-  margin: 30px auto 0;
-  width: 80%;
-  max-width: 700px;
-}
-
-video {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-/*=====================*/
-/*
-hr {
-  margin: 0 auto;
-  margin-top: 25px;
-  width: 30%;
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0),
-    rgb(170, 173, 174, 0.75),
-    rgba(255, 255, 255, 0)
-  );
-}
-*/
 
 /*=====================*/
 
@@ -516,6 +471,113 @@ footer .designed-by {
   margin: 0 5px 0;
 }
 
+/*=====================*/
+
+.trailer-wrapper {
+  margin: 40px 0;
+  padding: 30px 0;
+  background: radial-gradient(
+    circle at 24.1% 68.8%,
+    rgb(6, 10, 11) 0%,
+    rgb(0, 0, 0) 99.4%
+  );
+}
+
+.trailer-container {
+  margin: 30px auto 0;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.trailer-container video {
+  min-width: 500px;
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  padding-right: 70px;
+}
+
+/*========== Quotes ===========*/
+.quote {
+  font-size: 13px;
+}
+.quote h3 {
+  color: var(--main-color);
+}
+
+.quote .quote-text {
+  line-height: 1.5;
+  margin: 16px 0;
+  align-self: flex-start;
+}
+
+.quote .quote-info {
+  display: flex;
+  justify-content: space-between;
+  color: var(--main-color);
+}
+
+.quote .quote-info-next {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.quote .below-layer {
+  --quote-below-layer-height: 340px;
+  position: relative;
+  color: #0a1530;
+  margin: 32px 16px;
+  padding: 10px;
+  max-width: 320px;
+  min-width: 320px;
+  height: var(--quote-below-layer-height);
+  z-index: 1;
+}
+
+.quote .upper-layer {
+  box-shadow: inset 0 1px 1px 0 hsla(0, 0%, 100%, 0.15),
+    0 50px 100px -20px rgba(50, 50, 93, 0.3),
+    0 30px 60px -30px rgba(0, 0, 0, 0.5),
+    -10px 10px 60px -10px rgba(103, 178, 111, 0.3);
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 40px 25px;
+  height: calc(var(--quote-below-layer-height) - 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 320px) {
+  .below-layer:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 99%;
+    height: 99%;
+    border-radius: 16px;
+    background: linear-gradient(to right bottom, var(--main-color), #fff);
+    transform: rotate(4deg);
+    transform-origin: 40% 70%;
+    box-shadow: inset 0 1px 1px 0 hsla(0, 0%, 100%, 0.15),
+      0 50px 100px -20px rgba(50, 50, 93, 0.3),
+      0 30px 60px -30px rgba(0, 0, 0, 0.5),
+      -10px 10px 60px -10px rgba(103, 178, 111, 0.3);
+    z-index: -1;
+    line-height: 1.5;
+  }
+
+  .below-layer {
+    margin: 0 auto;
+  }
+}
+
 /*========== media ===========*/
 
 @media (max-width: 1024px) {
@@ -526,7 +588,16 @@ footer .designed-by {
   .navbar.sticky {
     padding: 5px 25px 5px 20px;
   }
+
+  .trailer-container {
+    flex-direction: column;
+  }
+  .trailer-container video {
+    padding-right: 0;
+    min-width: 360px;
+  }
 }
+
 @media (max-width: 850px) {
   h1 {
     font-size: 30px;
@@ -612,3 +683,20 @@ footer .designed-by {
     display: block;
   }
 }
+
+/*=====================*/
+/*
+hr {
+  margin: 0 auto;
+  margin-top: 25px;
+  width: 30%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgb(170, 173, 174, 0.75),
+    rgba(255, 255, 255, 0)
+  );
+}
+*/
