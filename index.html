@@ -201,44 +201,45 @@
       </div>
 
       <!-- gallery -->
-      <div class="gallery-wrapper" id="gallery">
+      <div class="gallery-wrap" id="gallery">
         <h2 class="title">Gallery</h2>
-        <div class="gallery-container">
-          <img src="/img/600/5.jpg" alt="test" />
-          <img src="/img/600/8.jpg" alt="test" />
-          <img src="/img/600/12.jpg" alt="test" />
-          <img src="/img/600/19.jpg" alt="test" />
-          <img src="/img/600/22.jpg" alt="test" />
-          <img src="/img/600/23.jpg" alt="test" />
-          <img src="/img/600/26.jpg" alt="test" />
-          <img src="/img/600/28.jpg" alt="test" />
-          <img src="/img/600/30.jpg" alt="test" />
-          <img src="/img/600/39.jpg" alt="test" />
-          <img src="/img/600/40.jpg" alt="test" />
-          <img src="/img/600/45.jpg" alt="test" />
-          <img src="/img/600/60.jpg" alt="test" />
-          <img src="/img/600/67.jpg" alt="test" />
-          <img src="/img/600/103.jpg" alt="test" />
-          <img src="/img/600/104.jpg" alt="test" />
-          <img src="/img/600/106.jpg" alt="test" />
-          <img src="/img/600/115.jpg" alt="test" />
-          <img src="/img/600/123.jpg" alt="test" />
-          <img src="/img/600/329.jpg" alt="test" />
-          <img src="/img/600/331.jpg" alt="test" />
-          <img src="/img/600/369.jpg" alt="test" />
-          <img src="/img/600/380.jpg" alt="test" />
-          <img src="/img/600/390.jpg" alt="test" />
-          <img src="/img/600/429.jpg" alt="test" />
-          <img src="/img/600/521.jpg" alt="test" />
-          <img src="/img/600/590.jpg" alt="test" />
-          <img src="/img/600/666.jpg" alt="test" />
-          <img src="/img/600/720.jpg" alt="test" />
-        </div>
-        <span class="switch-left" onclick="sliderScrollLeft()">
-          <img src="/img/left-50.png" />
+
+        <span class="switch-left">
+          <i class="fa-solid fa-angle-left" id="left-icon"></i>
         </span>
-        <span class="switch-right" onclick="sliderScrollRight()">
-          <img src="img/right-50.png" />
+        <div class="carousel" id="carousel">
+          <img src="/img/600/5.jpg" alt="test" draggable="false" />
+          <img src="/img/600/8.jpg" alt="test" draggable="false" />
+          <img src="/img/600/12.jpg" alt="test" draggable="false" />
+          <img src="/img/600/19.jpg" alt="test" draggable="false" />
+          <img src="/img/600/22.jpg" alt="test" draggable="false" />
+          <img src="/img/600/23.jpg" alt="test" draggable="false" />
+          <img src="/img/600/26.jpg" alt="test" draggable="false" />
+          <img src="/img/600/28.jpg" alt="test" draggable="false" />
+          <img src="/img/600/30.jpg" alt="test" draggable="false" />
+          <img src="/img/600/39.jpg" alt="test" draggable="false" />
+          <img src="/img/600/40.jpg" alt="test" draggable="false" />
+          <img src="/img/600/45.jpg" alt="test" draggable="false" />
+          <img src="/img/600/60.jpg" alt="test" draggable="false" />
+          <img src="/img/600/67.jpg" alt="test" draggable="false" />
+          <img src="/img/600/103.jpg" alt="test" draggable="false" />
+          <img src="/img/600/104.jpg" alt="test" draggable="false" />
+          <img src="/img/600/106.jpg" alt="test" draggable="false" />
+          <img src="/img/600/115.jpg" alt="test" draggable="false" />
+          <img src="/img/600/123.jpg" alt="test" draggable="false" />
+          <img src="/img/600/329.jpg" alt="test" draggable="false" />
+          <img src="/img/600/331.jpg" alt="test" draggable="false" />
+          <img src="/img/600/369.jpg" alt="test" draggable="false" />
+          <img src="/img/600/380.jpg" alt="test" draggable="false" />
+          <img src="/img/600/390.jpg" alt="test" draggable="false" />
+          <img src="/img/600/429.jpg" alt="test" draggable="false" />
+          <img src="/img/600/521.jpg" alt="test" draggable="false" />
+          <img src="/img/600/590.jpg" alt="test" draggable="false" />
+          <img src="/img/600/666.jpg" alt="test" draggable="false" />
+          <img src="/img/600/720.jpg" alt="test" draggable="false" />
+        </div>
+        <span class="switch-right">
+          <i class="fa-solid fa-angle-right" id="right-icon"></i>
         </span>
       </div>
 
@@ -356,6 +357,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="/src/app.js"></script>
+    <script src="/src/app.js" defer></script>
   </body>
 </html>
