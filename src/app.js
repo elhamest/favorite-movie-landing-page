@@ -20,10 +20,10 @@ let isDragStart = false,
   positionDiff;
 
 function showHideIcon() {
-  let maxScrollableWidth = carousel.scrollwidth - carousel.clientWidth;
+  let maxScrollableWidth = carousel.scrollWidth - carousel.clientWidth;
   leftIcon.style.display = carousel.scrollLeft == 0 ? "none" : "block";
   rightIcon.style.display =
-    carousel.scrollLeft == maxScrollableWidth ? "none" : "block";
+    Math.floor(carousel.scrollLeft) == maxScrollableWidth ? "none" : "block";
 }
 
 leftIcon.addEventListener("click", () => {
@@ -40,7 +40,7 @@ rightIcon.addEventListener("click", () => {
 
 function autoSlide() {
   //bz of: if there is no img left then it start scrolling back
-  let maxScrollableWidth = carousel.scrollwidth - carousel.clientWidth;
+  let maxScrollableWidth = carousel.scrollWidth - carousel.clientWidth;
   if (carousel.scrollleft == maxScrollableWidth) return;
 
   positionDiff = Math.abs(positionDiff); //making positionDiff value to positive
