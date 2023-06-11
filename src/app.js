@@ -3,122 +3,112 @@ window.addEventListener("scroll", function () {
   header.classList.toggle("sticky", window.scrollY > 0);
 });
 
-/*-- Gallery ---*/
+/*---------- Carousel ----------*/
+function initializeCarousel(
+  carouselId,
+  leftIconId,
+  rightIconId,
+  eachImageWidth,
+  imagePadding,
+) {
+  const carousel = document.getElementById(carouselId);
+  const leftIcon = document.getElementById(leftIconId);
+  const rightIcon = document.getElementById(rightIconId);
+  //
+  let firstImgWidth = eachImageWidth + imagePadding;
+  //
+  let isDragStart = false,
+    isDragging = false,
+    prevPageX,
+    prevScrollLeft,
+    positionDiff;
 
-const carousel = document.getElementById("carousel");
-const leftIcon = document.getElementById("left-icon");
-const rightIcon = document.getElementById("right-icon");
-//
-let eachImageWidth = 250;
-let imagePadding = 14; //margin-left: 14
-let firstImgWidth = eachImageWidth + imagePadding;
-//
-let isDragStart = false,
-  isDragging = false,
-  prevPageX,
-  prevScrollLeft,
-  positionDiff;
-
-function showHideIcon() {
-  let maxScrollableWidth = carousel.scrollWidth - carousel.clientWidth;
-  leftIcon.style.display = carousel.scrollLeft == 0 ? "none" : "block";
-  rightIcon.style.display =
-    Math.floor(carousel.scrollLeft) == maxScrollableWidth ? "none" : "block";
-}
-
-leftIcon.addEventListener("click", () => {
-  carousel.scrollLeft += -firstImgWidth;
-  setTimeout(() => showHideIcon(), 60); //calling showHideIcons after 60ms
-});
-
-rightIcon.addEventListener("click", () => {
-  carousel.scrollLeft += firstImgWidth;
-  setTimeout(() => showHideIcon(), 60); //calling showHideIcons after 60ms
-});
-
-/*-----*/
-
-function autoSlide() {
-  //bz of: if there is no img left then it start scrolling back
-  let maxScrollableWidth = carousel.scrollWidth - carousel.clientWidth;
-  if (carousel.scrollleft == maxScrollableWidth) return;
-
-  positionDiff = Math.abs(positionDiff); //making positionDiff value to positive
-  //getting difference value that needs to add or reduce from carousel left to take middle img center
-  let valDifference = firstImgWidth - positionDiff;
-  if (carousel.scrollleft > prevScrollLeft) {
-    //user scrolling to the right
-    return (carousel.scrollLeft +=
-      positionDiff > firstImgWidth / 3 ? valDifference : positionDiff);
+  function showHideIcon() {
+    let maxScrollableWidth = carousel.scrollWidth - carousel.clientWidth;
+    leftIcon.style.display = carousel.scrollLeft == 0 ? "none" : "block";
+    rightIcon.style.display =
+      Math.floor(carousel.scrollLeft) == maxScrollableWidth ? "none" : "block";
   }
-  //user scrolling to the left
-  carousel.scrollleft -=
-    positionDiff > firstImgWidth / 3 ? valDifference : positionDiff;
-}
 
-function dragCarousel(event) {
-  // scrolling images to left according to mouse pointer
-  if (!isDragStart) return;
-  event.preventDefault();
-  isDragging = true;
-  carousel.classList.add("dragging");
-  positionDiff = (event.pageX || event.touches[0].pageX) - prevPageX;
-  carousel.scrollLeft = prevScrollLeft - positionDiff;
-  showHideIcon();
-}
-
-function dragStop() {
-  isDragStart = false;
-  carousel.classList.remove("dragging");
-
-  if (!isDragging) return;
-  isDragging = false;
-  autoSlide();
-}
-
-function dragStart(event) {
-  isDragStart = true;
-  prevPageX = event.pageX || event.touches[0].pageX;
-  prevScrollLeft = carousel.scrollLeft;
-}
-
-carousel.addEventListener("mousedown", dragStart);
-carousel.addEventListener("mousemove", dragCarousel);
-carousel.addEventListener("mouseup", dragStop);
-carousel.addEventListener("mouseleave", dragStop);
-
-/*
-var scrollAmount = 0;
-
-carousel.addEventListener("wheel", function (event) {
-  event.preventDefault();
-  const delta = Math.sign(event.deltaY);
-  carousel.scrollLeft += delta * 10;
-});
-
-function carouselToLeft() {
-  carousel.scrollTo({
-    top: 0,
-    left: (scrollAmount -= firstImgWidth),
-    behavior: "smooth",
+  leftIcon.addEventListener("click", () => {
+    carousel.scrollLeft += -firstImgWidth;
+    setTimeout(() => showHideIcon(), 60); //calling showHideIcons after 60ms
   });
-  if (scrollAmount < 0) {
-    scrollAmount = 0;
+
+  rightIcon.addEventListener("click", () => {
+    carousel.scrollLeft += firstImgWidth;
+    setTimeout(() => showHideIcon(), 60); //calling showHideIcons after 60ms
+  });
+
+  /*-----*/
+
+  function autoSlide() {
+    //bz of: if there is no img left then it start scrolling back
+    let maxScrollableWidth = carousel.scrollWidth - carousel.clientWidth;
+    if (carousel.scrollleft == maxScrollableWidth) return;
+
+    positionDiff = Math.abs(positionDiff); //making positionDiff value to positive
+    //getting difference value that needs to add or reduce from carousel left to take middle img center
+    let valDifference = firstImgWidth - positionDiff;
+    if (carousel.scrollleft > prevScrollLeft) {
+      //user scrolling to the right
+      return (carousel.scrollLeft +=
+        positionDiff > firstImgWidth / 3 ? valDifference : positionDiff);
+    }
+    //user scrolling to the left
+    carousel.scrollleft -=
+      positionDiff > firstImgWidth / 3 ? valDifference : positionDiff;
   }
+
+  function dragCarousel(event) {
+    // scrolling images to left according to mouse pointer
+    if (!isDragStart) return;
+    event.preventDefault();
+    isDragging = true;
+    carousel.classList.add("dragging");
+    positionDiff = (event.pageX || event.touches[0].pageX) - prevPageX;
+    carousel.scrollLeft = prevScrollLeft - positionDiff;
+    showHideIcon();
+  }
+
+  function dragStop() {
+    isDragStart = false;
+    carousel.classList.remove("dragging");
+
+    if (!isDragging) return;
+    isDragging = false;
+    autoSlide();
+  }
+
+  function dragStart(event) {
+    isDragStart = true;
+    prevPageX = event.pageX || event.touches[0].pageX;
+    prevScrollLeft = carousel.scrollLeft;
+  }
+
+  carousel.addEventListener("mousedown", dragStart);
+  carousel.addEventListener("mousemove", dragCarousel);
+  carousel.addEventListener("mouseup", dragStop);
+  carousel.addEventListener("mouseleave", dragStop);
 }
 
-function carouselToRight() {
-  if (scrollAmount <= carousel.scrollWidth - carousel.clientWidth) {
-    carousel.scrollTo({
-      top: 0,
-      left: (scrollAmount += firstImgWidth),
-      behavior: "smooth",
-    });
-  }
-}
-*/
+// Call the function with the appropriate arguments for each carousel
+initializeCarousel(
+  "gallery-carousel",
+  "gallery-left-icon",
+  "gallery-right-icon",
+  250,
+  14,
+);
+initializeCarousel(
+  "actor-carousel",
+  "actor-left-icon",
+  "actor-right-icon",
+  150,
+  20,
+);
 
-/*-- navbar menu ---*/
+/*---------- navbar menu ----------*/
 
 const navLinks = document.querySelectorAll(".navbar-item-link");
 
