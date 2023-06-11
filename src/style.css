@@ -524,6 +524,18 @@ footer .designed-by {
   font-weight: 600;
   margin-bottom: 8px;
 }
+.actor-card .actor-card-text-name a {
+  text-decoration: none;
+}
+.actor-card .actor-card-text-name a:active,
+.actor-card .actor-card-text-name a:visited {
+  color: #000;
+}
+
+.actor-card .actor-card-text-name a:hover {
+  color: var(--main-color);
+}
+
 .actor-card .actor-card-text-role {
   color: #869293;
   font-size: 15px;
