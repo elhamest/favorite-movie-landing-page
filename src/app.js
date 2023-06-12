@@ -67,6 +67,7 @@ function initializeCarousel(
     event.preventDefault();
     isDragging = true;
     carousel.classList.add("dragging");
+    //Where the mouse is now on the screen minus where the drag started.
     positionDiff = (event.pageX || event.touches[0].pageX) - prevPageX;
     carousel.scrollLeft = prevScrollLeft - positionDiff;
     showHideIcon();

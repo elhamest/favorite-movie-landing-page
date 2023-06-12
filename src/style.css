@@ -235,19 +235,31 @@ h2 {
   margin: 0 30px;
   color: #fff;
   text-decoration: none;
-  padding-bottom: 5px;
   font-weight: 500;
   transition: 0.5s ease;
+  position: relative;
+}
+
+.navbar .navbar-item-link:after {
+  content: "";
+  position: absolute;
+  background-color: var(--main-color);
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s ease-in;
 }
 
 .navbar.sticky .navbar-item-link {
   color: var(--dark-color);
 }
 
-.navbar .navbar-item-link:hover,
-.navbar .navbar-item-link:active {
-  color: var(--main-color);
-  border-bottom: 2px solid var(--main-color);
+.navbar .navbar-item-link:hover:after,
+.navbar .navbar-item-link:active:after {
+  /*color: var(--main-color);
+  border-bottom: 2px solid var(--main-color);*/
+  width: 100%;
 }
 
 .navbar .hamburger {
@@ -436,19 +448,19 @@ footer .designed-by {
   margin-top: 12px;
 }
 
-.contact {
+.in-touch {
   text-align: center;
   margin-top: 12px;
 }
 
-.contact h4 {
+.in-touch h4 {
   font-size: 14px;
   margin: 5px 0;
   color: var(--gray-color);
   font-weight: 400;
 }
 
-.contact p {
+.in-touch p {
   color: var(--gray-color);
   font-size: 12px;
   margin: 5px 0;
