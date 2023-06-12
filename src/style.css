@@ -317,7 +317,7 @@ h2 {
 .gallery-wrap {
   position: relative;
   height: 260px;
-  margin: 20px 130px 0 100px;
+  margin: 20px 160px 0 120px;
   padding-top: 20px;
   user-select: none;
 }
@@ -496,7 +496,7 @@ footer .designed-by {
 /*========== Actor ===========*/
 .actor-wrap {
   margin: 0 130px 20px 100px;
-  padding: 0 100px;
+  padding: 0 130px;
 }
 
 .actor-wrap .switch-left,
@@ -568,7 +568,7 @@ footer .designed-by {
 
 .trailer-container {
   margin: 30px auto 0;
-  width: 80%;
+  width: 75%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -581,7 +581,7 @@ footer .designed-by {
   width: 100%;
   height: auto;
   border-radius: 4px;
-  padding-right: 120px;
+  padding-right: 150px;
 }
 
 /*========== Quotes ===========*/
@@ -731,7 +731,7 @@ footer .designed-by {
 
   .actor-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     white-space: nowrap;
     font-size: 0;
