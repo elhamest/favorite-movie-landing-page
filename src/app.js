@@ -1,9 +1,9 @@
 window.addEventListener("scroll", function () {
-  var header = document.querySelector("#navbar");
+  var header = document.getElementById("navbar");
   header.classList.toggle("sticky", window.scrollY > 0);
 });
 
-/*---------- Carousel ----------*/
+/*---- Carousel ----*/
 function initializeCarousel(
   carouselId,
   leftIconId,
@@ -40,7 +40,7 @@ function initializeCarousel(
     setTimeout(() => showHideIcon(), 60); //calling showHideIcons after 60ms
   });
 
-  /*-----*/
+  /*----*/
 
   function autoSlide() {
     //bz of: if there is no img left then it start scrolling back
@@ -108,7 +108,7 @@ initializeCarousel(
   20,
 );
 
-/*---------- navbar menu ----------*/
+/*---- navbar menu ----*/
 
 const navLinks = document.querySelectorAll(".navbar-item-link");
 
@@ -129,7 +129,7 @@ homepage.addEventListener("click", (e) => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-/*-----*/
+/*----*/
 
 const hamburgerElement = document.querySelector("#hamburger");
 const navbarContainerElement = document.querySelector(".navbar-container");
@@ -145,7 +145,7 @@ document.querySelectorAll(".navbar-item-link").forEach((n) =>
   }),
 );
 
-/*-----*/
+/*----*/
 
 const submitElement = document.querySelector("#submit");
 submitElement.addEventListener("click", (event) => {
@@ -160,7 +160,7 @@ submitElement.addEventListener("click", (event) => {
     alert("Please enter a valid email.");
   }
 });
-/*-----*/
+/*----*/
 
 const funnyText = [
   "Emotions can’t be allowed to interfere with what is right.<br/>(John Smith)",
@@ -192,6 +192,23 @@ function showQuote() {
   quoteInfoNoElement.textContent = `(${funnyTextIndex + 1}/10)`;
   funnyTextIndex += 1;
 }
+
+/*---- load more ----*/
+let loadMoreButtonElement = document.getElementById("load-more-button");
+let currentItem = 3;
+
+loadMoreButtonElement.addEventListener("click", () => {
+  let actors = document.querySelectorAll(".actor-container .actor-card");
+  for (var i = currentItem; i < currentItem + 3; i++) {
+    console.log(actors[i]);
+    actors[i].style.display = "flex";
+  }
+  currentItem += 3;
+  if (currentItem >= actors.length) {
+    loadMoreButtonElement.style.display = "none";
+  }
+});
+
 /*-----*/
 
 /*
