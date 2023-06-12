@@ -27,7 +27,7 @@ function initializeCarousel(
     let maxScrollableWidth = carousel.scrollWidth - carousel.clientWidth;
     leftIcon.style.display = carousel.scrollLeft == 0 ? "none" : "block";
     rightIcon.style.display =
-      Math.floor(carousel.scrollLeft) == maxScrollableWidth ? "none" : "block";
+      Math.ceil(carousel.scrollLeft) == maxScrollableWidth ? "none" : "block";
   }
 
   leftIcon.addEventListener("click", () => {
@@ -45,18 +45,19 @@ function initializeCarousel(
   function autoSlide() {
     //bz of: if there is no img left then it start scrolling back
     let maxScrollableWidth = carousel.scrollWidth - carousel.clientWidth;
-    if (carousel.scrollleft == maxScrollableWidth) return;
+    if (carousel.scrollLeft == maxScrollableWidth) return;
 
-    positionDiff = Math.abs(positionDiff); //making positionDiff value to positive
+    //making positionDiff value to positive
+    positionDiff = Math.abs(positionDiff);
     //getting difference value that needs to add or reduce from carousel left to take middle img center
     let valDifference = firstImgWidth - positionDiff;
-    if (carousel.scrollleft > prevScrollLeft) {
+    if (carousel.scrollLeft > prevScrollLeft) {
       //user scrolling to the right
       return (carousel.scrollLeft +=
         positionDiff > firstImgWidth / 3 ? valDifference : positionDiff);
     }
     //user scrolling to the left
-    carousel.scrollleft -=
+    carousel.scrollLeft -=
       positionDiff > firstImgWidth / 3 ? valDifference : positionDiff;
   }
 
