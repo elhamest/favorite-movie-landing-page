@@ -555,7 +555,10 @@ footer .designed-by {
 
 .actor-container .actor-card:nth-child(1),
 .actor-container .actor-card:nth-child(2),
-.actor-container .actor-card:nth-child(3) {
+.actor-container .actor-card:nth-child(3),
+.actor-container .actor-card:nth-child(4),
+.actor-container .actor-card:nth-child(5),
+.actor-container .actor-card:nth-child(6) {
   display: flex;
 }
 

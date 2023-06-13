@@ -227,7 +227,7 @@ function showQuote() {
 
 /*---- load more ----*/
 let loadMoreButtonElement = document.getElementById("load-more-button");
-let currentItem = 3;
+let currentItem = 6;
 
 loadMoreButtonElement.addEventListener("click", () => {
   let actors = document.querySelectorAll(".actor-container .actor-card");
