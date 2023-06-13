@@ -1,8 +1,3 @@
-window.addEventListener("scroll", function () {
-  var header = document.getElementById("navbar");
-  header.classList.toggle("sticky", window.scrollY > 0);
-});
-
 /*---- Carousel ----*/
 function initializeCarousel(
   carouselId,
@@ -111,43 +106,78 @@ initializeCarousel(
 );
 
 /*---- navbar menu ----*/
-
 const navLinks = document.querySelectorAll(".navbar-item-link");
+const homepage = document.getElementById("homepage");
 
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     const targetId = link.getAttribute("href");
     const targetElement = document.querySelector(targetId);
-    const topOffset = targetElement.offsetTop;
-    window.scrollTo({ top: topOffset, behavior: "smooth" });
+    const targetTopOffset = targetElement.offsetTop;
+    window.scrollTo({ top: targetTopOffset, behavior: "smooth" });
   });
 });
-
-const homepage = document.getElementById("homepage");
 
 homepage.addEventListener("click", (e) => {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-/*----*/
-
+/*---- Hamburger ----*/
 const hamburgerElement = document.querySelector("#hamburger");
 const navbarContainerElement = document.querySelector(".navbar-container");
+
 hamburgerElement.addEventListener("click", () => {
-  hamburgerElement.classList.toggle("active");
+  //hamburgerElement.classList.toggle("active");
   navbarContainerElement.classList.toggle("active");
 });
 
 document.querySelectorAll(".navbar-item-link").forEach((n) =>
   n.addEventListener("click", () => {
-    hamburgerElement.classList.remove("active");
+    //hamburgerElement.classList.remove("active");
     navbarContainerElement.classList.remove("active");
   }),
 );
 
-/*----*/
+/*---- sticky menu ----*/
+function addStickyClassToHeader() {
+  var header = document.getElementById("navbar");
+  header.classList.toggle("sticky", window.scrollY > 0);
+}
+
+/*---- Active menu link by window scroll----*/
+const sections = document.querySelectorAll("section");
+
+function findTargetByWindowScroll() {
+  //const  = window.scrollY;
+  const currentScrollPosition = window.pageYOffset;
+
+  // Loop through each section and check if it is in view
+  sections.forEach((section, index) => {
+    console.log("I'm in scrolling...");
+    const sectionTop = section.offsetTop - 300;
+    const sectionHeight = section.offsetHeight;
+
+    if (
+      currentScrollPosition >= sectionTop &&
+      currentScrollPosition < sectionTop + sectionHeight
+    ) {
+      // If the section is in view, add the "active-navbar-item-link" class to the corresponding menu link
+      navLinks.forEach((link) => {
+        link.classList.remove("navbar-item-link-active-by-scroll");
+      });
+      navLinks[index].classList.add("navbar-item-link-active-by-scroll");
+    }
+  });
+}
+
+window.addEventListener("scroll", () => {
+  addStickyClassToHeader();
+  findTargetByWindowScroll();
+});
+
+/*---- footer ----*/
 
 const submitElement = document.querySelector("#submit");
 submitElement.addEventListener("click", (event) => {
@@ -162,7 +192,7 @@ submitElement.addEventListener("click", (event) => {
     alert("Please enter a valid email.");
   }
 });
-/*----*/
+/*--------*/
 
 const funnyText = [
   "Emotions can’t be allowed to interfere with what is right.<br/>(John Smith)",
