@@ -1,3 +1,6 @@
+//it should execute at first load, bz when I'm in the middle of the page and we refresh the page, the menu.sticky isn'i added to the navbar
+addStickyClassToHeader();
+
 /*---- Carousel ----*/
 function initializeCarousel(
   carouselId,
@@ -182,6 +185,7 @@ function addStickyClassToHeader() {
 }
 
 /*---- Active menu link by window scroll----*/
+
 const sections = document.querySelectorAll("section");
 
 function findTargetByWindowScroll() {
