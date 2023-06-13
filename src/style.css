@@ -627,6 +627,7 @@ footer .designed-by {
   width: 100%;
   height: auto;
   border-radius: 5px;
+  padding-right: 15px;
 }
 
 /*==== Quotes ====*/
@@ -712,11 +713,6 @@ footer .designed-by {
     z-index: -1;
     line-height: 1.5;
   }
-  /*
-  .below-layer {
-    margin: 0 auto; 
-  }
-  */ /*???*/
 }
 
 @media (max-width: 1024px) {
@@ -851,7 +847,7 @@ footer .designed-by {
     display: flex;
     flex-direction: column;
     width: 100%;
-    transition: 0.3s;
+    transition: 0.1s;
     z-index: 1000;
     padding: 10px 0 10px;
     background: var(--dark-color);
@@ -891,7 +887,7 @@ footer .designed-by {
   .navbar .navbar-item-link {
     padding-bottom: 0;
   }
-  .navbar.sticky .navbar-item-link {
+  .navbar.sticky .navbar-item-link:not(.navbar-item-link-active-by-scroll) {
     color: #fff;
   }
 

@@ -129,13 +129,13 @@ const hamburgerElement = document.querySelector("#hamburger");
 const navbarContainerElement = document.querySelector(".navbar-container");
 
 hamburgerElement.addEventListener("click", () => {
-  //hamburgerElement.classList.toggle("active");
+  hamburgerElement.classList.toggle("active");
   navbarContainerElement.classList.toggle("active");
 });
 
 document.querySelectorAll(".navbar-item-link").forEach((n) =>
   n.addEventListener("click", () => {
-    //hamburgerElement.classList.remove("active");
+    hamburgerElement.classList.remove("active");
     navbarContainerElement.classList.remove("active");
   }),
 );
