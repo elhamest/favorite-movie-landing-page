@@ -6,87 +6,112 @@ function initializeCarousel(
   eachImageWidth,
   imagePadding,
 ) {
-  const carousel = document.getElementById(carouselId);
+  const carouselElement = document.getElementById(carouselId);
   const leftIcon = document.getElementById(leftIconId);
   const rightIcon = document.getElementById(rightIconId);
-  //
-  let firstImgWidth = eachImageWidth + imagePadding;
-  //
+
+  let oneImageWidth = eachImageWidth + imagePadding;
   let isDragStart = false,
     isDragging = false,
-    prevPageX,
-    prevScrollLeft,
-    positionDiff;
+    initialDragX,
+    mouseDragDistance;
+
+  function dragStart(event) {
+    //occured on mousedown
+    isDragStart = true;
+    //used to store the previous X-coordinate of the mouse pointer or touch event when the drag starts.
+    initialDragX = event.pageX || event.touches[0].pageX;
+    //used to store the current horizontal scroll position of the carouselElement when the drag starts. initialScrollLeft
+    initialHorizontalScrollPosition = carouselElement.scrollLeft;
+  }
 
   function showHideIcon() {
-    let maxScrollableWidth = carousel.scrollWidth - carousel.clientWidth;
-    leftIcon.style.display = carousel.scrollLeft == 0 ? "none" : "block";
+    let maxScrollableWidth =
+      carouselElement.scrollWidth - carouselElement.clientWidth;
+    leftIcon.style.display = carouselElement.scrollLeft == 0 ? "none" : "block";
     rightIcon.style.display =
-      Math.ceil(carousel.scrollLeft) == maxScrollableWidth ? "none" : "block";
+      Math.ceil(carouselElement.scrollLeft) == maxScrollableWidth
+        ? "none"
+        : "block";
   }
 
   leftIcon.addEventListener("click", () => {
-    carousel.scrollLeft += -firstImgWidth;
+    carouselElement.scrollLeft += -oneImageWidth;
     setTimeout(() => showHideIcon(), 60); //calling showHideIcons after 60ms
   });
 
   rightIcon.addEventListener("click", () => {
-    carousel.scrollLeft += firstImgWidth;
+    carouselElement.scrollLeft += oneImageWidth;
     setTimeout(() => showHideIcon(), 60); //calling showHideIcons after 60ms
   });
 
   /*----*/
 
-  function autoSlide() {
-    //bz of: if there is no img left then it start scrolling back
-    let maxScrollableWidth = carousel.scrollWidth - carousel.clientWidth;
-    if (carousel.scrollLeft == maxScrollableWidth) return;
-
-    //making positionDiff value to positive
-    positionDiff = Math.abs(positionDiff);
-    //getting difference value that needs to add or reduce from carousel left to take middle img center
-    let valDifference = firstImgWidth - positionDiff;
-    if (carousel.scrollLeft > prevScrollLeft) {
-      //user scrolling to the right
-      return (carousel.scrollLeft +=
-        positionDiff > firstImgWidth / 3 ? valDifference : positionDiff);
-    }
-    //user scrolling to the left
-    carousel.scrollLeft -=
-      positionDiff > firstImgWidth / 3 ? valDifference : positionDiff;
-  }
-
   function dragCarousel(event) {
+    //occured when mousemove
+
     // scrolling images to left according to mouse pointer
     if (!isDragStart) return;
     event.preventDefault();
     isDragging = true;
-    carousel.classList.add("dragging");
+    carouselElement.classList.add("dragging");
+
     //Where the mouse is now on the screen minus where the drag started.
-    positionDiff = (event.pageX || event.touches[0].pageX) - prevPageX;
-    carousel.scrollLeft = prevScrollLeft - positionDiff;
+    mouseDragDistance = (event.pageX || event.touches[0].pageX) - initialDragX;
+
+    carouselElement.scrollLeft =
+      initialHorizontalScrollPosition - mouseDragDistance;
     showHideIcon();
   }
 
+  /*
+  function autoSlide() {
+    //bz of: if there is no img left then it start scrolling back
+    //carouselElement.scrollWidth:
+    //// returns the total width of the scrollable content of the carouselElement,
+    //// including any content that overflows beyond the element's visible width.
+    //carouselElement.clientWidth:
+    //// returns the visible width of the carouselElement, which is the width of the element's content area excluding any vertical scrollbar (if present) and padding.
+    let maxScrollableWidth =
+      carouselElement.scrollWidth - carouselElement.clientWidth;
+    if (carouselElement.scrollLeft == maxScrollableWidth) return;
+
+    //making mouseDragDistance value to positive
+    mouseDragDistance = Math.abs(mouseDragDistance);
+
+    //getting difference value that needs to add or reduce from carousel left to take middle img center
+    let valDifference = oneImageWidth - mouseDragDistance;
+
+    //user scrolling to the right
+    if (carouselElement.scrollLeft > initialHorizontalScrollPosition) {
+      return (carouselElement.scrollLeft +=
+        mouseDragDistance > oneImageWidth / 3
+          ? valDifference
+          : mouseDragDistance);
+    }
+    //user scrolling to the left
+    carouselElement.scrollLeft -=
+      mouseDragDistance > oneImageWidth / 3 ? valDifference : mouseDragDistance;
+  }
+*/
+
   function dragStop() {
+    //occured when mouseup or mouseleave
     isDragStart = false;
-    carousel.classList.remove("dragging");
+    carouselElement.classList.remove("dragging");
 
     if (!isDragging) return;
     isDragging = false;
-    autoSlide();
+
+    /*if (window.matchMedia("(max-width: 1024px)").matches) {
+      autoSlide();
+    }*/
   }
 
-  function dragStart(event) {
-    isDragStart = true;
-    prevPageX = event.pageX || event.touches[0].pageX;
-    prevScrollLeft = carousel.scrollLeft;
-  }
-
-  carousel.addEventListener("mousedown", dragStart);
-  carousel.addEventListener("mousemove", dragCarousel);
-  carousel.addEventListener("mouseup", dragStop);
-  carousel.addEventListener("mouseleave", dragStop);
+  carouselElement.addEventListener("mousedown", dragStart);
+  carouselElement.addEventListener("mousemove", dragCarousel);
+  carouselElement.addEventListener("mouseup", dragStop);
+  carouselElement.addEventListener("mouseleave", dragStop);
 }
 
 // Call the function with the appropriate arguments for each carousel
@@ -106,10 +131,12 @@ initializeCarousel(
 );
 
 /*---- navbar menu ----*/
-const navLinks = document.querySelectorAll(".navbar-item-link");
-const homepage = document.getElementById("homepage");
+const navLinksElement = document.querySelectorAll(".navbar-item-link");
+const homepageElement = document.getElementById("homepage");
+const hamburgerElement = document.querySelector("#hamburger");
+const navbarContainerElement = document.querySelector(".navbar-container");
 
-navLinks.forEach((link) => {
+navLinksElement.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     const targetId = link.getAttribute("href");
@@ -119,14 +146,12 @@ navLinks.forEach((link) => {
   });
 });
 
-homepage.addEventListener("click", (e) => {
+homepageElement.addEventListener("click", (e) => {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 /*---- Hamburger ----*/
-const hamburgerElement = document.querySelector("#hamburger");
-const navbarContainerElement = document.querySelector(".navbar-container");
 
 hamburgerElement.addEventListener("click", () => {
   hamburgerElement.classList.toggle("active");
@@ -155,7 +180,6 @@ function findTargetByWindowScroll() {
 
   // Loop through each section and check if it is in view
   sections.forEach((section, index) => {
-    console.log("I'm in scrolling...");
     const sectionTop = section.offsetTop - 300;
     const sectionHeight = section.offsetHeight;
 
@@ -164,10 +188,10 @@ function findTargetByWindowScroll() {
       currentScrollPosition < sectionTop + sectionHeight
     ) {
       // If the section is in view, add the "active-navbar-item-link" class to the corresponding menu link
-      navLinks.forEach((link) => {
+      navLinksElement.forEach((link) => {
         link.classList.remove("navbar-item-link-active-by-scroll");
       });
-      navLinks[index].classList.add("navbar-item-link-active-by-scroll");
+      navLinksElement[index].classList.add("navbar-item-link-active-by-scroll");
     }
   });
 }
@@ -180,9 +204,9 @@ window.addEventListener("scroll", () => {
 /*---- footer ----*/
 
 const submitElement = document.querySelector("#submit");
+
 submitElement.addEventListener("click", (event) => {
   const userEmail = document.querySelector("#email").value;
-
   event.preventDefault();
   if (userEmail.includes("@") && userEmail.includes(".com")) {
     alert(
@@ -192,6 +216,7 @@ submitElement.addEventListener("click", (event) => {
     alert("Please enter a valid email.");
   }
 });
+
 /*--------*/
 
 const funnyText = [
@@ -262,6 +287,5 @@ async function showMovieData() {
       `<img class="img-${index} carousel-img" src="https://image.tmdb.org/t/p/w185/${cur.poster_path}" />`,
     );
   });
-  firstImgWidth = 400;
 }
 */

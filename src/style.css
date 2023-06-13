@@ -40,10 +40,7 @@ h2 {
   position: relative;
 }
 .title {
-  background: -webkit-linear-gradient(#9becfc, var(--main-color));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--main-color);
   user-select: none;
 }
 
