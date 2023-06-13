@@ -22,6 +22,7 @@ h4,
 h5,
 h6 {
   font-family: "Lora", serif;
+  user-select: none;
 }
 h1 {
   font-size: 36px;
@@ -33,15 +34,9 @@ h1 {
 h2 {
   font-size: 25px;
   text-align: center;
-  margin: 0;
-  margin-bottom: 30px;
 }
 .body-wrapper {
   position: relative;
-}
-.title {
-  color: var(--main-color);
-  user-select: none;
 }
 
 /*=====================*/
@@ -332,6 +327,12 @@ h2 {
   user-select: none;
 }
 
+.gallery-wrap h2 {
+  color: var(--main-color);
+  margin: 0;
+  margin-bottom: 30px;
+}
+
 .gallery-wrap .switch-left i,
 .gallery-wrap .switch-right i {
   position: absolute;
@@ -509,6 +510,11 @@ footer .designed-by {
   margin: 40px 100px;
   padding: 0 130px;
 }
+.actor-wrap h2 {
+  color: var(--main-color);
+  margin: 0;
+  margin-bottom: 30px;
+}
 
 .actor-wrap .switch-left,
 .actor-wrap .switch-right {
@@ -599,7 +605,7 @@ footer .designed-by {
 
 /*==== Trailer ====*/
 
-.trailer-wrapper {
+.trailer-wrap {
   margin: 40px 0 30px;
   padding: 30px;
   background: radial-gradient(
@@ -607,6 +613,12 @@ footer .designed-by {
     rgb(6, 10, 11) 0%,
     rgb(0, 0, 0) 99.4%
   );
+}
+
+.trailer-wrap h2 {
+  color: var(--main-color);
+  margin: 0;
+  margin-bottom: 30px;
 }
 
 .trailer-container {
@@ -680,6 +692,57 @@ footer .designed-by {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+/*==== Award ====*/
+.award-wrap {
+  margin: 40px auto 30px;
+  padding: 30px;
+  background: #000;
+  height: 300px;
+  position: relative;
+}
+
+.award-container-title h2 {
+  color: #fff;
+  margin: 75px 35px 0 0;
+}
+
+.award-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  height: 200px;
+  width: 600px;
+  background-color: #fff;
+  box-shadow: -1px 3px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.award-container-title {
+  width: calc(30% + 50px);
+  height: 100%;
+  background-color: var(--main-color);
+  border-left: 100px solid #fff;
+  border-bottom: 200px solid transparent;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.award-container-detail {
+  width: calc(70% - 50px);
+  height: 100%;
+  background-color: #fff;
+  color: var(--dark-color);
+  padding: 60px 10px 40px 60px;
+  line-height: 2;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.award-container-detail span {
+  font-weight: 600;
 }
 
 /*========== media ===========*/
@@ -791,9 +854,6 @@ footer .designed-by {
     font-size: 30px;
   }
 
-  h2 {
-    font-size: 25px;
-  }
   .navbar .hamburger {
     display: block;
   }
@@ -911,6 +971,48 @@ footer .designed-by {
 
   .actor-wrap {
     margin: 20px 80px 30px;
+  }
+
+  /*----*/
+  .award-wrap {
+    height: auto;
+    width: auto;
+    margin: 60px 0 30px;
+  }
+
+  .award-container {
+    position: static;
+    height: auto;
+    width: auto;
+    transform: none;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 0;
+  }
+
+  .award-container-title {
+    width: auto;
+    height: auto;
+    background-color: var(--main-color);
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .award-container-title h2 {
+    margin: 0;
+    padding: 10px 0px;
+  }
+  .award-container-detail {
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    padding: 30px 10px 30px 25px;
+    text-align: center;
   }
 }
 
