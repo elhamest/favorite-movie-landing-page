@@ -327,7 +327,6 @@ h2 {
 
 .gallery-wrap {
   position: relative;
-  height: 260px;
   margin: 20px 160px 0 120px;
   padding-top: 20px;
   user-select: none;
@@ -366,6 +365,7 @@ h2 {
   cursor: pointer;
   overflow: hidden;
   scroll-behavior: smooth;
+  border-radius: 4px;
 }
 
 .carousel.dragging {
@@ -685,9 +685,6 @@ footer .designed-by {
 /*========== media ===========*/
 
 @media (max-width: 550px) {
-  .gallery-wrap {
-    min-width: 230px;
-  }
 }
 
 @media (min-width: 550px) {
@@ -709,6 +706,130 @@ footer .designed-by {
       -10px 10px 60px -10px rgba(103, 178, 111, 0.3);
     z-index: -1;
     line-height: 1.5;
+  }
+}
+
+@media (max-width: 850px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+  .navbar .hamburger {
+    display: block;
+  }
+
+  .navbar .social-icon {
+    display: inline-block;
+  }
+
+  .navbar .navbar-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar .navbar-container {
+    position: fixed;
+    left: -100%;
+    top: 60px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: 0.1s;
+    z-index: 1000;
+    padding: 10px 0 10px;
+    background: var(--dark-color);
+    user-select: none;
+  }
+
+  .navbar:not(.sticky) .navbar-container {
+    margin-top: 20px;
+  }
+
+  .navbar .navbar-container.active {
+    left: 0;
+  }
+
+  .social-link-bar {
+    display: none;
+  }
+
+  .navbar .navbar-logo {
+    background-image: url("/img/logo-mini.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 55px;
+    user-select: none;
+  }
+
+  .navbar .navbar-item {
+    padding: 16px 0;
+    text-align: center;
+  }
+
+  .navbar .navbar-item:not(:last-child) {
+    border-right: none;
+  }
+
+  .navbar .navbar-item-link {
+    padding-bottom: 0;
+  }
+  .navbar.sticky .navbar-item-link:not(.navbar-item-link-active-by-scroll) {
+    color: #fff;
+  }
+
+  .hero {
+    margin: 20px 30px;
+  }
+
+  footer img {
+    display: none;
+  }
+  .footer-container {
+    display: block;
+    text-align: center;
+    margin: 0 50px 0;
+  }
+  .footer-link {
+    display: block;
+  }
+
+  .trailer-container {
+    flex-direction: column;
+  }
+
+  .quote {
+    margin-top: 25px;
+  }
+
+  .carousel img:hover {
+    transform: none;
+  }
+
+  .carousel img {
+    min-width: 320px;
+    max-width: 320px;
+    height: 213.33px;
+    margin: 0 0 18px 14px;
+  }
+
+  .gallery-wrap {
+    margin: 20px 30px 50px;
+  }
+
+  .gallery-wrap .switch-left i,
+  .gallery-wrap .switch-right i {
+    top: 97%;
+  }
+
+  .gallery-wrap .switch-left i {
+    left: 38%;
+  }
+
+  .gallery-wrap .switch-right i {
+    left: 52%;
   }
 }
 
@@ -811,105 +932,6 @@ footer .designed-by {
 
   .actor-card .actor-card-text {
     text-align: center;
-  }
-}
-
-@media (max-width: 850px) {
-  .gallery-wrap {
-    margin: 20px 80px 0;
-  }
-  h1 {
-    font-size: 30px;
-  }
-
-  h2 {
-    font-size: 25px;
-  }
-  .navbar .hamburger {
-    display: block;
-  }
-
-  .navbar .social-icon {
-    display: inline-block;
-  }
-
-  .navbar .navbar-menu {
-    display: flex;
-    flex-direction: column;
-  }
-  .navbar .navbar-container {
-    position: fixed;
-    left: -100%;
-    top: 60px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    transition: 0.1s;
-    z-index: 1000;
-    padding: 10px 0 10px;
-    background: var(--dark-color);
-    user-select: none;
-  }
-
-  .navbar:not(.sticky) .navbar-container {
-    margin-top: 20px;
-  }
-
-  .navbar .navbar-container.active {
-    left: 0;
-  }
-
-  .social-link-bar {
-    display: none;
-  }
-
-  .navbar .navbar-logo {
-    background-image: url("/img/logo-mini.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 250px;
-    height: 55px;
-    user-select: none;
-  }
-
-  .navbar .navbar-item {
-    padding: 16px 0;
-    text-align: center;
-  }
-
-  .navbar .navbar-item:not(:last-child) {
-    border-right: none;
-  }
-
-  .navbar .navbar-item-link {
-    padding-bottom: 0;
-  }
-  .navbar.sticky .navbar-item-link:not(.navbar-item-link-active-by-scroll) {
-    color: #fff;
-  }
-
-  .hero {
-    margin: 20px 30px;
-  }
-
-  footer img {
-    display: none;
-  }
-  .footer-container {
-    display: block;
-    text-align: center;
-    margin: 0 50px 0;
-  }
-  .footer-link {
-    display: block;
-  }
-
-  .trailer-container {
-    flex-direction: column;
-  }
-
-  .quote {
-    margin-top: 25px;
   }
 }
 

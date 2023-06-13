@@ -64,7 +64,6 @@ function initializeCarousel(
     showHideIcon();
   }
 
-  /*
   function autoSlide() {
     //bz of: if there is no img left then it start scrolling back
     //carouselElement.scrollWidth:
@@ -93,7 +92,6 @@ function initializeCarousel(
     carouselElement.scrollLeft -=
       mouseDragDistance > oneImageWidth / 3 ? valDifference : mouseDragDistance;
   }
-*/
 
   function dragStop() {
     //occured when mouseup or mouseleave
@@ -103,9 +101,9 @@ function initializeCarousel(
     if (!isDragging) return;
     isDragging = false;
 
-    /*if (window.matchMedia("(max-width: 1024px)").matches) {
+    if (window.matchMedia("(max-width: 390px)").matches) {
       autoSlide();
-    }*/
+    }
   }
 
   carouselElement.addEventListener("mousedown", dragStart);
@@ -115,13 +113,25 @@ function initializeCarousel(
 }
 
 // Call the function with the appropriate arguments for each carousel
+const firstImageElement = document
+  .getElementById("gallery-carousel")
+  .getElementsByTagName("img")[0];
+const firstImageWidth = firstImageElement.width;
+
 initializeCarousel(
   "gallery-carousel",
   "gallery-left-icon",
   "gallery-right-icon",
-  250,
+  firstImageWidth,
   14,
 );
+
+/*
+const firstCardElement = document
+  .getElementById("actor-carousel")
+  .getElementsByClassName("actor-card")[0];
+const firstCardWidth = firstCardElement.width;
+*/
 initializeCarousel(
   "actor-carousel",
   "actor-left-icon",
