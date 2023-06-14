@@ -194,7 +194,7 @@ function findTargetByWindowScroll() {
 
   // Loop through each section and check if it is in view
   sections.forEach((section, index) => {
-    const sectionTop = section.offsetTop - 300;
+    const sectionTop = section.offsetTop - 250;
     const sectionHeight = section.offsetHeight;
 
     if (

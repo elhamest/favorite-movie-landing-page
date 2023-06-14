@@ -224,7 +224,7 @@ h2 {
   border-right: 1px solid var(--gray-color);
 }
 .navbar .navbar-item-link {
-  margin: 0 30px;
+  margin: 0 25px;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
@@ -269,6 +269,15 @@ h2 {
   cursor: pointer;
   margin: 20px 0 10px;
   text-align: center;
+}
+
+.navbar .social-icon a i {
+  color: var(--gray-color);
+}
+
+.navbar .social-icon a:visited,
+.navbar .social-icon a:active {
+  color: var(--gray-color);
 }
 
 .navbar .social-icon .social-icon-link {
@@ -510,7 +519,7 @@ footer .designed-by {
 
 .actor-wrap {
   margin: 40px 100px;
-  padding: 0 130px;
+  padding: 20px 130px 0;
 }
 .actor-wrap h2 {
   color: var(--main-color);
@@ -626,7 +635,7 @@ footer .designed-by {
 
 .trailer-container {
   margin: 30px auto 10px;
-  width: 75%;
+  width: 78%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -639,7 +648,7 @@ footer .designed-by {
   width: 100%;
   height: auto;
   border-radius: 5px;
-  padding-right: 15px;
+  padding-right: 50px;
 }
 
 /*==== Quotes ====*/
@@ -699,8 +708,8 @@ footer .designed-by {
 
 /*==== Award ====*/
 .award-wrap {
-  margin: 40px auto 30px;
-  padding: 30px;
+  margin: 30px auto;
+  padding: 50px;
   background: #000;
   height: 300px;
   position: relative;
@@ -818,10 +827,9 @@ footer .designed-by {
 
   /*-----*/
   .actor-wrap {
-    padding: 0;
+    padding: 30px 0;
     position: relative;
-    height: 260px;
-    margin: 20px 130px 30px 100px;
+    margin: 60px 130px 0 100px;
     user-select: none;
   }
 
@@ -832,7 +840,7 @@ footer .designed-by {
   .actor-wrap .switch-left i,
   .actor-wrap .switch-right i {
     position: absolute;
-    top: 50%;
+    top: 40%;
     /*transform: translateY(-50%);*/
     width: 35px;
     height: 35px;
@@ -898,7 +906,9 @@ footer .designed-by {
   .actor-container :first-child {
     margin-left: 0;
   }
-
+  .actor-container :last-child {
+    margin-right: 0;
+  }
   .actor-card .actor-card-text {
     text-align: center;
   }
@@ -1034,14 +1044,14 @@ footer .designed-by {
   }
 
   .actor-wrap {
-    margin: 20px 80px 30px;
+    margin: 40px 80px 0;
   }
 
   /*----*/
   .award-wrap {
     height: auto;
     width: auto;
-    margin: 60px 0 30px;
+    margin: 30px auto;
   }
 
   .award-container {
@@ -1054,6 +1064,7 @@ footer .designed-by {
     justify-content: space-between;
     background-color: #fff;
     padding: 0;
+    margin: 0 auto;
   }
 
   .award-container-title {
