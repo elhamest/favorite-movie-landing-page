@@ -276,7 +276,7 @@ loadMoreButtonElement.addEventListener("click", () => {
     actors[i].style.display = "flex";
   }
   currentItem += 12;
-  console.log(currentItem);
+  //console.log(currentItem);
   if (currentItem >= actors.length) {
     loadMoreButtonElement.style.display = "none";
   }
