@@ -587,6 +587,7 @@ footer .designed-by {
 .actor-card .actor-card-text-name a {
   text-decoration: none;
 }
+
 .actor-card .actor-card-text-name a:active,
 .actor-card .actor-card-text-name a:visited {
   color: #000;
