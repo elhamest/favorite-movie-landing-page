@@ -15,40 +15,1269 @@
       src="https://kit.fontawesome.com/7d78062c9c.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="/src/style.css" />
     <!---- favicon ---->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/img/fav/apple-touch-icon.png"
-    />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/img/fav/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/img/fav/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/img/fav/site.webmanifest" />
-    <link
-      rel="mask-icon"
-      href="/img/fav/safari-pinned-tab.svg"
-      color="#5bbad5"
+      href="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/627/original/favicon-32x32.png?1686733129"
     />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
+
+    <style>
+      :root {
+        --main-color: #0db0b9;
+        --dark-color: #011415;
+        --gray-color: #aaadae; /*rgb(170, 173, 174)*/
+        --azure-color: azure;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      body {
+        min-height: 100vh; /*man 100vh gozashte boodam*/
+        font-family: "Open Sans", sans-serif;
+        min-width: 320px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Lora", serif;
+        user-select: none;
+      }
+      h1 {
+        font-size: 36px;
+        color: white;
+        margin-top: 0;
+        margin-bottom: 18px;
+      }
+
+      h2 {
+        font-size: 25px;
+        text-align: center;
+      }
+      .body-wrapper {
+        position: relative;
+      }
+
+      /*=====================*/
+
+      .hero-wrap {
+        color: azure;
+        position: relative;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*height: 100vh;*/ /*I comment this*/
+      }
+
+      .hero-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80%;
+        height: 100%;
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 1),
+          rgba(0, 0, 0, 0)
+        );
+      }
+
+      .hero-container {
+        width: 1300px;
+        min-height: 700px;
+        background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/600/original/No17-2048w-croped.jpg?1686731850");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        align-content: center;
+      }
+
+      .hero-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 35%;
+        height: 100%;
+        background-image: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 1),
+          rgba(0, 0, 0, 0)
+        );
+      }
+
+      .hero {
+        align-self: center;
+        margin-left: 70px;
+        max-width: 500px;
+        z-index: 1;
+      }
+
+      .hero .detail {
+        font-size: 11px;
+        margin: 5px;
+        color: var(--gray-color);
+      }
+
+      .hero .plot {
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 8px 5px 25px;
+      }
+
+      .hero .creator,
+      .hero .star {
+        font-size: 13px;
+      }
+
+      .hero .creator-title,
+      .hero .star-title {
+        color: var(--main-color);
+      }
+
+      .hero .star-link,
+      .hero .creator-link {
+        color: var(--gray-color);
+      }
+
+      .hero .buttons {
+        margin-top: 20px;
+      }
+
+      .hero .watch-now,
+      .hero .read-more {
+        padding: 10px 18px;
+        font-size: 14px;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .hero .watch-now {
+        background-color: var(--main-color);
+        border: 1px solid var(--main-color);
+      }
+
+      .hero .watch-now:hover {
+        background-color: transparent;
+      }
+
+      .hero .read-more {
+        margin-left: 15px;
+        background-color: transparent;
+        border: 1px solid var(--main-color);
+      }
+
+      .hero .read-more:hover {
+        background-color: var(--main-color);
+      }
+
+      .hero a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .hero a:hover {
+        color: var(--gray-color);
+      }
+
+      .hero .rate-container {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        margin-top: 10px;
+        font-size: 12px;
+      }
+
+      /*=====================*/
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        transition: 0.6s; /*kari nemikone*/
+        z-index: 5;
+        padding: 30px 70px;
+      }
+
+      .navbar.sticky {
+        padding: 10px 70px;
+        background: #fff;
+        opacity: 0.9;
+      }
+
+      .navbar .navbar-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+      }
+
+      .navbar .navbar-logo {
+        /* background-image: url("/img/logo.svg");
+        background-size: contain;
+        background-repeat: no-repeat; */
+        width: 250px;
+        height: 50px;
+      }
+
+      .navbar .navbar-menu .navbar-item {
+        list-style: none;
+        font-size: 13px;
+        letter-spacing: 1px;
+        min-width: 25px;
+      }
+
+      .navbar .navbar-item:not(:last-child) {
+        border-right: 1px solid var(--gray-color);
+      }
+      .navbar .navbar-item-link {
+        margin: 0 25px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.5s ease;
+        position: relative;
+      }
+
+      .navbar .navbar-item-link:after {
+        content: "";
+        position: absolute;
+        background-color: var(--main-color);
+        height: 3px;
+        width: 0;
+        left: 0;
+        bottom: -10px;
+        transition: 0.5s ease-in;
+      }
+
+      .navbar .navbar-item-link:hover:after,
+      .navbar .navbar-item-link:active:after {
+        width: 100%;
+      }
+
+      .navbar.sticky .navbar-item-link:not(.active-by-scroll) {
+        color: var(--dark-color);
+      }
+
+      .navbar-item-link.active-by-scroll {
+        color: var(--main-color);
+        font-weight: 600;
+      }
+
+      .navbar .hamburger {
+        color: var(--gray-color);
+        display: none;
+        cursor: pointer;
+        font-size: 25px;
+      }
+      .navbar .social-icon {
+        color: var(--gray-color);
+        display: none;
+        cursor: pointer;
+        margin: 20px 0 10px;
+        text-align: center;
+      }
+
+      .navbar .social-icon a i {
+        color: var(--gray-color);
+      }
+
+      .navbar .social-icon a:visited,
+      .navbar .social-icon a:active {
+        color: var(--gray-color);
+      }
+
+      .navbar .social-icon .social-icon-link {
+        margin: 0 10px 0;
+        padding: 0 10px 0;
+      }
+
+      .navbar .social-icon .social-icon-link :hover,
+      .navbar .social-icon .social-icon-link :active {
+        color: var(--main-color);
+        transform: scale(1.3);
+      }
+
+      /*=====================*/
+
+      .social-link-bar {
+        position: fixed;
+        top: 18%;
+        right: 20px;
+        z-index: 5;
+        opacity: 80%;
+      }
+      .social-link-bar ul {
+        margin: 0;
+        padding: 10px 10px 10px 20px;
+      }
+
+      .social-link-bar ul li {
+        list-style-type: none;
+        padding: 10px;
+        color: var(--gray-color);
+        user-select: none;
+      }
+
+      .social-link-bar .vertical-line {
+        height: 120px;
+        border-left: 1px solid var(--gray-color);
+        margin-left: 38px;
+      }
+
+      .social-link-bar ul a,
+      .social-link-bar ul a:active {
+        color: var(--gray-color);
+      }
+
+      .social-link-bar ul a:hover {
+        color: var(--main-color);
+      }
+
+      /*=====================*/
+
+      .gallery-wrap {
+        position: relative;
+        margin: 20px 160px 0 120px;
+        padding-top: 20px;
+        user-select: none;
+      }
+
+      /*
+.gallery-wrap h2 {
+  color: var(--main-color);
+  margin: 0;
+  margin-bottom: 30px;
+}*/
+
+      .gallery-wrap .switch-left i,
+      .gallery-wrap .switch-right i {
+        position: absolute;
+        top: 50%; /*60%;*/
+        /*transform: translateY(-50%);*/
+        width: 35px;
+        height: 35px;
+        font-size: 19px;
+        line-height: 35px;
+        background: #fff;
+        color: var(--main-color);
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        cursor: pointer;
+        text-align: center;
+        user-select: none;
+      }
+
+      .gallery-wrap .switch-left i {
+        left: -50px;
+        display: none;
+      }
+
+      .gallery-wrap .switch-right i {
+        right: -50px;
+      }
+
+      .carousel {
+        white-space: nowrap;
+        font-size: 0;
+        cursor: pointer;
+        overflow: hidden;
+        scroll-behavior: smooth;
+        border-radius: 4px;
+        padding: 20px 0; /*new*/
+      }
+
+      .carousel.dragging {
+        cursor: grab;
+        scroll-behavior: auto;
+      }
+      .carousel.dragging img {
+        pointer-events: none;
+      }
+
+      .carousel img {
+        min-width: 250px;
+        max-width: 250px;
+        height: 166.66px;
+        object-fit: cover;
+        margin: 18px 0 18px 14px;
+        z-index: 2;
+        border-radius: 5px;
+        transition: 0.5s ease;
+      }
+
+      .carousel img:first-child {
+        margin-left: 0;
+      }
+
+      .carousel img:hover {
+        transform: scale(1.2);
+        border-radius: 5px;
+        z-index: 5;
+      }
+
+      /*=====================*/
+
+      .footer-wrap {
+        background-color: var(--dark-color);
+        padding: 15px 35px;
+      }
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--gray-color);
+      }
+
+      .footer-logo {
+        /* background-image: url("/img/logo.svg");
+        background-size: contain;
+        background-repeat: no-repeat;*/
+        width: 160px;
+        height: 40px;
+      }
+
+      footer a {
+        text-decoration: none;
+        color: var(--gray-color);
+      }
+      footer a:visited,
+      footer a:active {
+        color: var(--gray-color);
+      }
+
+      footer a:hover {
+        color: var(--main-color);
+      }
+
+      .footer-link {
+        display: flex;
+        flex-direction: column;
+        user-select: none;
+      }
+
+      .footer-link i {
+        display: inline-block;
+        font-size: 16px;
+        padding: 0 10px 0;
+      }
+      footer .designed-by {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 12px;
+      }
+
+      .in-touch {
+        text-align: center;
+        margin-top: 12px;
+      }
+
+      .in-touch h4 {
+        font-size: 14px;
+        margin: 5px 0;
+        color: var(--gray-color);
+        font-weight: 400;
+      }
+
+      .in-touch p {
+        color: var(--gray-color);
+        font-size: 12px;
+        margin: 5px 0;
+      }
+
+      .input-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .input-container input[type="email"] {
+        padding: 7px;
+        color: var(--gray-color);
+        background-color: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid rgba(204, 204, 204, 0.7);
+        font-size: 12px;
+        width: 200px;
+      }
+
+      .input-container button[type="submit"] {
+        background-color: transparent;
+        border: none;
+        color: var(--main-color);
+        font-size: 20px;
+        cursor: pointer;
+        margin-left: -40px;
+        padding: 10px;
+        user-select: none;
+      }
+
+      .input-container button[type="submit"]:hover {
+        color: #fff;
+      }
+
+      .input-container button[type="submit"] i {
+        margin: 0 5px 0;
+      }
+
+      /*========== Actor ===========*/
+
+      .actor-wrap {
+        margin: 40px 100px;
+        padding: 20px 130px 0;
+      }
+      .actor-wrap h2 {
+        color: var(--main-color);
+        margin: 0;
+        margin-bottom: 30px;
+      }
+
+      .actor-wrap .switch-left,
+      .actor-wrap .switch-right {
+        display: none;
+      }
+
+      .actor-wrap .load-more {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .actor-wrap .load-more button {
+        padding: 10px 18px;
+        font-size: 14px;
+        color: var(--gray-color);
+        background-color: transparent;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 1px solid var(--gray-color);
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+      }
+
+      .actor-wrap .load-more button:hover {
+        border-color: var(--main-color);
+        color: var(--main-color);
+      }
+
+      .actor-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-gap: 15px 20px;
+        justify-content: center;
+      }
+
+      .actor-container .actor-card {
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        display: none;
+      }
+
+      .actor-container .actor-card:nth-child(1),
+      .actor-container .actor-card:nth-child(2),
+      .actor-container .actor-card:nth-child(3),
+      .actor-container .actor-card:nth-child(4),
+      .actor-container .actor-card:nth-child(5),
+      .actor-container .actor-card:nth-child(6) {
+        display: flex;
+      }
+
+      .actor-card .actor-card-text-name,
+      .actor-card .actor-card-text-role {
+        font-size: 15px;
+      }
+      .actor-card .actor-card-text-name {
+        font-weight: 600;
+        margin: 8px 0;
+      }
+      .actor-card .actor-card-text-name a {
+        text-decoration: none;
+        color: var(--dark-color);
+      }
+
+      .actor-card .actor-card-text-name a:active,
+      .actor-card .actor-card-text-name a:visited {
+        color: var(--dark-color);
+      }
+
+      .actor-card .actor-card-text-name a:hover {
+        color: var(--main-color);
+      }
+
+      .actor-card .actor-card-text-role {
+        color: #869293;
+        font-size: 15px;
+      }
+      .actor-card .actor-card-image {
+        margin-right: 20px;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+      }
+      .actor-card img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 50%;
+      }
+
+      /*==== Trailer ====*/
+
+      .trailer-wrap {
+        margin: 40px 0 30px;
+        padding: 30px;
+        background: radial-gradient(
+          circle at 24.1% 68.8%,
+          rgb(6, 10, 11) 0%,
+          rgb(0, 0, 0) 99.4%
+        );
+      }
+
+      /*
+.trailer-wrap h2 {
+  color: var(--main-color);
+  margin: 0;
+  margin-bottom: 30px;
+}*/
+
+      .trailer-container {
+        margin: 30px auto 10px;
+        width: 78%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .trailer-container .video img {
+        min-width: 500px;
+        max-width: 500px;
+        height: auto;
+        border-radius: 5px;
+        padding-right: 50px;
+        user-select: none;
+      }
+
+      /*==== Quotes ====*/
+
+      .quote {
+        font-size: 13px;
+        margin: 0 20px;
+      }
+      .quote h3 {
+        color: var(--main-color);
+        user-select: none;
+      }
+
+      .quote .quote-text {
+        line-height: 1.5;
+        margin: 16px 0;
+        align-self: flex-start;
+      }
+
+      .quote .quote-info {
+        display: flex;
+        justify-content: space-between;
+        color: var(--main-color);
+        user-select: none;
+      }
+
+      .quote .quote-info-next {
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .quote .below-layer {
+        --quote-below-layer-height: 340px;
+        position: relative;
+        color: #0a1530;
+        padding: 10px;
+        margin: 0 auto;
+        max-width: 290px;
+        min-width: 290px;
+        height: var(--quote-below-layer-height);
+        z-index: 1;
+      }
+
+      .quote .upper-layer {
+        box-shadow: inset 0 1px 1px 0 hsla(0, 0%, 100%, 0.15),
+          0 50px 100px -20px rgba(50, 50, 93, 0.3),
+          0 30px 60px -30px rgba(0, 0, 0, 0.5),
+          -10px 10px 60px -10px rgba(103, 178, 111, 0.3);
+        background: var(--azure-color);
+        border-radius: 16px;
+        padding: 35px 25px 25px 35px;
+        height: calc(var(--quote-below-layer-height) - 20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      /*==== Award ====*/
+      .award-wrap {
+        margin: 30px auto;
+        padding: 50px;
+        background: #000;
+        height: 300px;
+        position: relative;
+      }
+
+      .award-container-title h2 {
+        color: #fff;
+        margin: 75px 35px 0 0;
+      }
+
+      .award-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        height: 200px;
+        width: 600px;
+        background-color: #fff;
+        box-shadow: -1px 3px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      .award-container-title {
+        width: calc(30% + 50px);
+        height: 100%;
+        background-color: var(--main-color);
+        border-left: 100px solid #fff;
+        border-bottom: 200px solid transparent;
+        text-align: center;
+        border-radius: 5px;
+      }
+
+      .award-container-detail {
+        width: calc(70% - 50px);
+        height: 100%;
+        background-color: #fff;
+        color: var(--dark-color);
+        padding: 60px 10px 40px 60px;
+        line-height: 2;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .award-container-detail span {
+        font-weight: 600;
+      }
+
+      /*===== Suggested ======*/
+      .suggested-wrap {
+        margin: 30px 110px 40px;
+      }
+
+      .suggested-wrap h2 {
+        color: var(--main-color);
+        margin: 0;
+        margin-bottom: 30px;
+      }
+      .suggested-wrap h3 {
+        color: var(--main-color);
+        margin: 0;
+        margin-top: 3px;
+        font-size: 16px;
+      }
+      .suggested-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        text-align: center;
+        gap: 30px 20px;
+      }
+
+      .suggested-container .suggested-card p {
+        font-size: 12px;
+        color: var(--dark-color);
+      }
+      .suggested-container .suggested-card img {
+        width: 130px;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      .suggested-text .rate-container {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3px;
+        font-size: 12px;
+        user-select: none;
+      }
+
+      .suggested-text a {
+        text-decoration: none;
+        cursor: pointer;
+        color: var(--main-color);
+      }
+
+      .suggested-text a:visited,
+      .suggested-text a:active {
+        color: var(--main-color);
+      }
+
+      /*========== media ===========*/
+
+      @media (max-width: 1024px) {
+        .navbar {
+          padding: 20px 25px 20px 20px;
+        }
+
+        .navbar.sticky {
+          padding: 5px 25px 5px 20px;
+        }
+
+        .trailer-container .video img {
+          min-width: 360px;
+          max-width: 400px;
+          height: auto;
+          padding: 0 10px 0;
+        }
+
+        /*-----*/
+        .actor-wrap {
+          padding: 30px 0;
+          position: relative;
+          margin: 60px 130px 0 100px;
+          user-select: none;
+        }
+
+        .actor-wrap .switch-left,
+        .actor-wrap .switch-right {
+          display: block;
+        }
+        .actor-wrap .switch-left i,
+        .actor-wrap .switch-right i {
+          position: absolute;
+          top: 40%;
+          width: 35px;
+          height: 35px;
+          font-size: 19px;
+          line-height: 35px;
+          background: #fff;
+          color: var(--main-color);
+          border-radius: 50%;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          cursor: pointer;
+          text-align: center;
+          user-select: none;
+        }
+
+        .actor-wrap .switch-left i {
+          left: -50px;
+          display: none;
+        }
+
+        .actor-wrap .switch-right i {
+          right: -50px;
+        }
+
+        .actor-wrap .load-more {
+          display: none;
+        }
+
+        .actor-container {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          white-space: nowrap;
+          font-size: 0;
+          cursor: pointer;
+          overflow: hidden;
+          scroll-behavior: smooth;
+          grid-gap: 0;
+        }
+
+        .actor-container.dragging {
+          cursor: grab;
+          scroll-behavior: auto;
+        }
+        .actor-container.dragging img {
+          pointer-events: none;
+        }
+
+        .actor-card .actor-card-image {
+          width: 130px;
+          height: 130px;
+          margin: 0;
+        }
+        .actor-card img {
+          height: 130px;
+        }
+
+        .actor-container .actor-card {
+          margin: 10px 20px;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+        }
+        .actor-container :first-child {
+          margin-left: 0;
+        }
+        .actor-container :last-child {
+          margin-right: 0;
+        }
+        .actor-card .actor-card-text {
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 985px) {
+        .suggested-wrap {
+          margin: 30px 60px 40px;
+        }
+
+        .suggested-container {
+          gap: 30px 50px;
+        }
+      }
+
+      @media (max-width: 850px) {
+        h1 {
+          font-size: 30px;
+        }
+
+        .navbar .hamburger {
+          display: block;
+        }
+
+        .navbar .social-icon {
+          display: inline-block;
+        }
+
+        .navbar .navbar-menu {
+          display: flex;
+          flex-direction: column;
+        }
+        .navbar .navbar-container {
+          position: fixed;
+          left: -100%;
+          top: 60px;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          transition: 0.1s;
+          z-index: 1000;
+          padding: 10px 0 10px;
+          background: var(--dark-color);
+          user-select: none;
+        }
+
+        .navbar:not(.sticky) .navbar-container {
+          margin-top: 20px;
+        }
+
+        .navbar .navbar-container.active {
+          left: 0;
+        }
+
+        .social-link-bar {
+          display: none;
+        }
+
+        .navbar .navbar-logo {
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHhtbG5zOnhsaW5rPSdodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rJwogIHZpZXdCb3g9JzAgMCAxMDAgMTAwJyBkYXRhLWJhY2tncm91bmQtY29sb3I9JyNmZmZmZmYnIGhlaWdodD0nNTAnIHdpZHRoPSc1MCc+CiAgPGcgdHJhbnNmb3JtPSd0cmFuc2xhdGUoLTUgMCksIHNjYWxlKDEpJyBoZWlnaHQ9Jzc1JyB3aWR0aD0nNzUnPgogICAgPHJlY3QgeD0nMzQuNTcxJyB5PScxNi4zMjEnIGZpbGw9JyMwZGIwYjknIHdpZHRoPSc1LjcxNicgaGVpZ2h0PSc1LjcxNicKICAgICAgZGF0YS1maWxsLXBhbGV0dGUtY29sb3I9J2FjY2VudCcgLz4KICAgIDxyZWN0IHg9JzM0LjU3MScgeT0nMjguMzY4JyBmaWxsPScjMGRiMGI5JyB3aWR0aD0nNS43MTYnIGhlaWdodD0nNS43MTYnCiAgICAgIGRhdGEtZmlsbC1wYWxldHRlLWNvbG9yPSdhY2NlbnQnIC8+CiAgICA8cmVjdCB4PSczNC41NzEnIHk9JzQwLjQxNicgZmlsbD0nIzBkYjBiOScgd2lkdGg9JzUuNzE2JyBoZWlnaHQ9JzUuNzE2JwogICAgICBkYXRhLWZpbGwtcGFsZXR0ZS1jb2xvcj0nYWNjZW50JyAvPgogICAgPHJlY3QgeD0nMzQuNTcxJyB5PSc1Mi40NjQnIGZpbGw9JyMwZGIwYjknIHdpZHRoPSc1LjcxNicgaGVpZ2h0PSc1LjcxNicKICAgICAgZGF0YS1maWxsLXBhbGV0dGUtY29sb3I9J2FjY2VudCcgLz4KICAgIDxyZWN0IHg9JzgwLjM0OScgeT0nMTYuMzIxJyBmaWxsPScjMGRiMGI5JyB3aWR0aD0nNS43MTYnIGhlaWdodD0nNS43MTYnCiAgICAgIGRhdGEtZmlsbC1wYWxldHRlLWNvbG9yPSdhY2NlbnQnIC8+CiAgICA8cmVjdCB4PSc4MC4zNDknIHk9JzI4LjM2OCcgZmlsbD0nIzBkYjBiOScgd2lkdGg9JzUuNzE2JyBoZWlnaHQ9JzUuNzE2JwogICAgICBkYXRhLWZpbGwtcGFsZXR0ZS1jb2xvcj0nYWNjZW50JyAvPgogICAgPHJlY3QgeD0nODAuMzQ5JyB5PSc0MC40MTYnIGZpbGw9JyMwZGIwYjknIHdpZHRoPSc1LjcxNicgaGVpZ2h0PSc1LjcxNicKICAgICAgZGF0YS1maWxsLXBhbGV0dGUtY29sb3I9J2FjY2VudCcgLz4KICAgIDxyZWN0IHg9JzgwLjM0OScgeT0nNTIuNDY0JyBmaWxsPScjMGRiMGI5JyB3aWR0aD0nNS43MTYnIGhlaWdodD0nNS43MTYnCiAgICAgIGRhdGEtZmlsbC1wYWxldHRlLWNvbG9yPSdhY2NlbnQnIC8+CgogICAgPHBhdGggZmlsbD0nIzBkYjBiOScKICAgICAgZD0nTTUyLjMyNCA1MC4zNTZjLTAuMTg4IDAtMC4zNzUtMC4wNDgtMC41NDYtMC4xNDItMC4zNTQtMC4xOTktMC41NzItMC41NzItMC41NzItMC45NzVWMjYuMjcxYzAtMC40MDQgMC4yMTgtMC43NzcgMC41NzItMC45NzUgMC4zNTQtMC4xOTQgMC43ODYtMC4xOSAxLjEzIDAuMDI0bDE4LjcwNCAxMS40ODNjMC4zMzIgMC4yMDMgMC41MzIgMC41NjMgMC41MzIgMC45NTEgMCAwLjM4OS0wLjIwMSAwLjc0OS0wLjUzMiAwLjk1MUw1Mi45MDkgNTAuMTlDNTIuNzMgNTAuMzAxIDUyLjUyNyA1MC4zNTYgNTIuMzI0IDUwLjM1NnpNNTMuNDQyIDI4LjI2OHYxOC45NzRsMTUuNDUtOS40ODhMNTMuNDQyIDI4LjI2OHonCiAgICAgIGRhdGEtZmlsbC1wYWxldHRlLWNvbG9yPSdhY2NlbnQnIC8+CgogICAgPHBhdGggZmlsbD0nIzBkYjBiOScKICAgICAgZD0nTTgxLjk3OCA4LjMwMWM0LjAyNSAwIDcuMyAzLjI3NSA3LjMgNy4zVjU5LjNjMCA0LjAyNS0zLjI3NSA3LjMtNy4zIDcuM0gzOC4yNzljLTQuMDI1IDAtNy4zLTMuMjc1LTcuMy03LjNWMTUuNjAxYzAtNC4wMjUgMy4yNzUtNy4zIDcuMy03LjNIODEuOTc4TTgxLjk3OCA2LjA2NkgzOC4yNzljLTUuMjY2IDAtOS41MzUgNC4yNjktOS41MzUgOS41MzVWNTkuM2MwIDUuMjY2IDQuMjY5IDkuNTM1IDkuNTM1IDkuNTM1aDQzLjY5OWM1LjI2NiAwIDkuNTM1LTQuMjY5IDkuNTM1LTkuNTM1VjE1LjYwMUM5MS41MTIgMTAuMzM1IDg3LjI0MyA2LjA2NiA4MS45NzggNi4wNjZMODEuOTc4IDYuMDY2eicKICAgICAgZGF0YS1maWxsLXBhbGV0dGUtY29sb3I9J2FjY2VudCcgLz4KCiAgICA8cGF0aCBmaWxsPScjMGRiMGI5JwogICAgICBkPSdNNzQuNjMgNzEuMDY5aC0yLjI5OWwwLjIyNSAwLjkyNGMwLjQ3OCAxLjk1NyAwLjE2NCAzLjk4NS0wLjg4NCA1LjcwNi0xLjA0OCAxLjcyMi0yLjcwNCAyLjkzMS00LjY2MSAzLjQwOWwtMzguNTczIDkuMzg2Yy0xLjk1MyAwLjQ3NC0zLjk4IDAuMTY0LTUuNzA2LTAuODg2LTEuNzIyLTEuMDQ3LTIuOTMxLTIuNzA0LTMuNDA5LTQuNjYxbC05LjM4My0zOC41N2MtMC40NzgtMS45NTctMC4xNjEtMy45ODUgMC44ODYtNS43MDYgMS4wNDctMS43MjIgMi43MDQtMi45MzEgNC42NjEtMy40MDlsMTEuMDIzLTIuNjgyVjMyLjI4bC0xMS41NTEgMi44MDljLTIuNTM4IDAuNjE4LTQuNjgzIDIuMTg3LTYuMDQzIDQuNDE5LTEuMzU3IDIuMjMtMS43NjUgNC44NTgtMS4xNDggNy4zOTZsOS4zODYgMzguNTdjMC42MTUgMi41MzggMi4xODQgNC42ODMgNC40MTcgNi4wNDMgMS41NTIgMC45NDMgMy4yOTMgMS40MjkgNS4wNjUgMS40MjkgMC43NzUgMCAxLjU1OC0wLjA5NCAyLjMzMS0wLjI4NGwzOC41NzMtOS4zODZjMi41MzgtMC42MTUgNC42ODMtMi4xODQgNi4wNC00LjQxNyAxLjM2LTIuMjMgMS43NjUtNC44NTggMS4xNDgtNy4zOTZMNzQuNjMgNzEuMDY5eicKICAgICAgZGF0YS1maWxsLXBhbGV0dGUtY29sb3I9J2FjY2VudCcgLz4KICA8L2c+Cjwvc3ZnPg==");
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 250px;
+          height: 55px;
+          user-select: none;
+        }
+
+        .navbar .navbar-logo svg {
+          display: none;
+        }
+
+        .navbar .navbar-item {
+          padding: 16px 0;
+          text-align: center;
+        }
+
+        .navbar .navbar-item:not(:last-child) {
+          border-right: none;
+        }
+
+        .navbar .navbar-item-link {
+          padding-bottom: 0;
+        }
+        .navbar.sticky .navbar-item-link:not(.active-by-scroll) {
+          color: #fff;
+        }
+
+        .hero {
+          margin: 20px 30px;
+        }
+
+        footer img {
+          display: none;
+        }
+
+        .footer-container {
+          display: block;
+          text-align: center;
+          margin: 0 50px 0;
+        }
+
+        .footer-link {
+          display: block;
+        }
+
+        .trailer-container {
+          flex-direction: column;
+        }
+
+        .quote {
+          margin-top: 25px;
+        }
+
+        .carousel img:hover {
+          transform: none;
+        }
+
+        .carousel img {
+          min-width: 320px;
+          max-width: 320px;
+          height: 213.33px;
+          margin: 0 0 18px 14px;
+        }
+
+        .gallery-wrap {
+          margin: 20px 30px 50px;
+        }
+
+        .gallery-wrap .switch-left i,
+        .gallery-wrap .switch-right i {
+          top: 90%;
+        }
+
+        .gallery-wrap .switch-left i {
+          left: 38%;
+        }
+
+        .gallery-wrap .switch-right i {
+          left: 52%;
+        }
+
+        .actor-wrap {
+          margin: 40px 80px 0;
+        }
+
+        /*----*/
+        .award-wrap {
+          height: auto;
+          width: auto;
+          margin: 30px auto;
+        }
+
+        .award-container {
+          position: static;
+          height: auto;
+          width: auto;
+          transform: none;
+          display: flex;
+          flex-direction: column-reverse;
+          justify-content: space-between;
+          background-color: #fff;
+          padding: 0;
+          margin: 0 auto;
+        }
+
+        .award-container-title {
+          width: auto;
+          height: auto;
+          background-color: var(--main-color);
+          border: none;
+          text-align: center;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .award-container-title h2 {
+          margin: 0;
+          padding: 10px 0px;
+        }
+
+        .award-container-detail {
+          width: auto;
+          height: auto;
+          background-color: #fff;
+          padding: 30px 10px 30px 25px;
+          text-align: center;
+        }
+
+        .suggested-container {
+          gap: 50px;
+          justify-content: space-around;
+        }
+      }
+
+      @media (max-width: 505px) {
+        .suggested-container {
+          flex-direction: column;
+        }
+      }
+
+      @media (min-width: 550px) {
+        .below-layer:before {
+          content: " ";
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 99%;
+          height: 99%;
+          border-radius: 16px;
+          background: linear-gradient(to right bottom, var(--main-color), #fff);
+          transform: rotate(4deg);
+          transform-origin: 40% 70%;
+          box-shadow: inset 0 1px 1px 0 hsla(0, 0%, 100%, 0.15),
+            0 50px 100px -20px rgba(50, 50, 93, 0.3),
+            0 30px 60px -30px rgba(0, 0, 0, 0.5),
+            -10px 10px 60px -10px rgba(103, 178, 111, 0.3);
+          z-index: -1;
+          line-height: 1.5;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="body-wrapper">
       <!----- menu ----->
       <header>
         <nav class="navbar" id="navbar">
-          <a href="/#" title="Homepage" id="homepage" class="navbar-logo"></a>
+          <a href="/#" title="Homepage" id="homepage" class="navbar-logo">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 100 100"
+              data-background-color="#ffffff"
+              height="50"
+              width="252"
+            >
+              <g transform="translate(-200 70), scale(1.5)">
+                <path
+                  d="M26.4-12.55L26.4-12.55Q31.25-12.4 31.53-12.4 31.8-12.4 31.85-12.4L31.85-12.4Q33.05-12.5 33.05-12.05L33.05-12.05Q33.05-11.35 31.1-11.35L31.1-11.35 26.85-11.45Q25.55-11.35 25.3-11.2L25.3-11.2Q23.2-8.6 19.65-3.68 16.1 1.25 16.1 2.2L16.1 2.2Q16.1 2.6 17 2L17 2Q17.55 2 17.55 2.15L17.55 2.15Q17.55 2.4 16.45 2.9L16.45 2.9 15.05 3.65Q14.1 4.45 12.88 4.45 11.65 4.45 11.75 3.85L11.75 3.85Q11.8 2.65 15.3-2.23 18.8-7.1 22.55-11.5L22.55-11.5Q18.95-10.85 17.05-10.85L17.05-10.85Q16.85-10.9 16.85-11.18 16.85-11.45 17.45-11.95 18.05-12.45 18.73-12.45 19.4-12.45 20.9-12.5L20.9-12.5 23.45-12.5Q25.15-14.8 31-23.1L31-23.1Q33.4-26.55 33.4-28.8L33.4-28.8Q33.4-32.3 28.2-32.3L28.2-32.3Q24.15-32.3 18.68-30.05 13.2-27.8 8.6-23.9L8.6-23.9Q5.35-21.2 3.45-18.05 1.55-14.9 1.55-12.45L1.55-12.45Q1.55-8.5 6.25-8.5L6.25-8.5Q6.65-8.5 7.1-8.55L7.1-8.55Q10.15-8.8 12.88-12.03 15.6-15.25 15.6-17.45L15.6-17.45Q15.6-17.65 15.55-17.9L15.55-17.9Q16.85-17.65 16.85-16.35L16.85-16.35Q16.85-14.2 14.05-11.3L14.05-11.3Q10.25-7.35 5.25-7.35L5.25-7.35Q2.5-7.35 0.95-8.8-0.6-10.25-0.6-12.75L-0.6-12.75Q-0.6-18.65 6.6-24.65L6.6-24.65Q11.8-28.9 17.65-31.08 23.5-33.25 27.83-33.25 32.15-33.25 34.27-32 36.4-30.75 36.4-28.53 36.4-26.3 34.45-23.5L34.45-23.5Q33.3-21.65 26.4-12.55ZM48.2-14.95L48.2-14.95 48.9-15.1Q49.45-15.1 49.95-14.65 50.45-14.2 50.45-13.95 50.45-13.7 47.35-9.13 44.25-4.55 44.25-2.75L44.25-2.75Q44.25-2.6 44.3-2.45L44.3-2.45Q44.55-1.3 45.4-1.3L45.4-1.3Q48-1.3 54.9-9.9L54.9-9.9Q55.05-10.1 55.25-10.1 55.45-10.1 55.45-9.73 55.45-9.35 55-8.75L55-8.75Q48.6-0.2 45.25-0.2L45.25-0.2Q44.8-0.2 44.4-0.35L44.4-0.35Q42.2-1.2 42.2-3.65L42.2-3.65Q42.2-4.5 42.4-5.35L42.4-5.35 39.3-2.35Q36.35 0.25 35.02 0.25 33.7 0.25 32.5-0.6L32.5-0.6Q31.15-1.6 31.15-3.25L31.15-3.25Q31.15-6.9 36.25-11.98 41.35-17.05 45.6-17.05L45.6-17.05Q47.25-17.05 47.8-15.9L47.8-15.9Q47.95-15.5 48.05-15.23 48.15-14.95 48.2-14.95ZM33.25-2.65L33.25-2.65Q33.25-0.85 34.5-0.85L34.5-0.85Q37.4-0.85 42.4-7.2L42.4-7.2 47.7-14.5Q47.3-15.2 46.4-15.2L46.4-15.2Q43.35-15.2 38.3-10.48 33.25-5.75 33.25-2.65ZM65.75-19.65L65.75-19.65Q67.25-19.65 68.3-18.65 69.35-17.65 69.35-15.85L69.35-15.85Q69.35-11.9 62.8-5.95L62.8-5.95Q57.25-0.95 53.85 0.15L53.85 0.15Q53.3 0.15 52.4-0.45 51.5-1.05 51.5-1.55L51.5-1.55Q51.5-2.65 53.9-9 56.3-15.35 57.2-16.1L57.2-16.1Q57.4-16.3 57.85-16.3 58.3-16.3 58.8-15.83 59.3-15.35 59.35-14.7L59.35-14.7Q59.35-14.65 56.87-8.9 54.4-3.15 54.55-2.05L54.55-2.05Q56.7-2.7 62.22-7.3 67.75-11.9 67.75-15.55L67.75-15.55Q67.75-17.75 65.55-18.75L65.55-18.75Q65.2-18.9 65.2-19.2L65.2-19.2Q65.2-19.65 65.75-19.65ZM80.29-10.6L80.29-10.6Q80.29-8.85 76.94-4.75L76.94-4.75Q72.99 0.1 70.19 0.1L70.19 0.1 69.39 0.1Q68.09 0.1 67.34-1.25L67.34-1.25Q66.74-2.2 66.74-3.35L66.74-3.35Q66.74-6.35 71.12-11.78 75.49-17.2 78.19-17.2L78.19-17.2Q80.74-17.2 80.74-14.5L80.74-14.5Q80.74-13.8 80.49-12.7L80.49-12.7Q80.54-12.55 81.44-12.55 82.34-12.55 84.19-13.5L84.19-13.5Q84.14-12.65 80.24-11.05L80.24-11.05Q80.29-10.85 80.29-10.6ZM77.04-13.2L77.04-13.2Q75.34-13.2 72.22-9.2 69.09-5.2 69.09-3.3 69.09-1.4 70.29-1.4L70.29-1.4Q72.44-1.4 75.74-5.3 79.04-9.2 79.04-10.9L79.04-10.9Q78.24-11.35 77.04-13.2ZM91.49 0.25L91.49 0.25Q87.74 0.25 87.74-3.9L87.74-3.9Q87.74-6 88.84-8.5 89.94-11 91.24-12.7L91.24-12.7Q90.99-12.65 90.59-12.65L90.59-12.65Q89.39-12.65 88.59-14.35L88.59-14.35 84.89-9.55Q81.79-5.7 81.29-5.7L81.29-5.7Q81.04-5.7 81.04-5.9L81.04-5.9Q81.04-6.4 81.89-7.35L81.89-7.35Q86.24-12.4 88.04-15.9L88.04-15.9Q89.19-20.25 90.94-20.25L90.94-20.25Q92.09-20.25 92.09-19.25 92.09-18.25 90.84-16.7L90.84-16.7 89.64-15.1Q89.64-14.05 91.19-14.05L91.19-14.05Q92.09-14.05 93.19-14.7L93.19-14.7 94.49-15.5Q94.59-15.55 94.99-15.55 95.39-15.55 95.84-15.05 96.29-14.55 96.14-14.15L96.14-14.15 92.69-9.8Q89.49-5.7 89.49-3.33 89.49-0.95 91.69-0.95L91.69-0.95Q93.99-0.95 97.34-3.4L97.34-3.4Q99.34-4.85 100.99-6.65L100.99-6.65Q102.54-8.45 102.69-8.45L102.69-8.45Q103.04-8.45 103.04-8.08 103.04-7.7 102.59-7.2L102.59-7.2 100.99-5.4Q99.64-4 97.99-2.7L97.99-2.7Q94.04 0.25 91.49 0.25ZM111.84-20.4Q112.59-20.4 113.26-19.93 113.94-19.45 113.94-18.8 113.94-18.15 113.31-17.68 112.69-17.2 111.94-17.2 111.19-17.2 110.56-17.75 109.94-18.3 109.94-19L109.94-19Q109.94-20.4 111.84-20.4L111.84-20.4ZM102.79 0.55L102.79 0.55Q100.24 0.55 100.24-2.75L100.24-2.75Q100.24-5.45 103.19-10.23 106.14-15 107.94-15.05L107.94-15.05Q108.44-15.05 109.06-14.65 109.69-14.25 109.69-13.85L109.69-13.85Q109.44-13.5 109.09-13.08 108.74-12.65 108.34-12.15 107.94-11.65 107.24-10.73 106.54-9.8 105.89-8.95L105.89-8.95Q102.14-4.1 102.14-2.27 102.14-0.45 103.39-0.45L103.39-0.45Q104.44-0.45 106.24-1.6L106.24-1.6Q110.44-4.2 112.89-7.3L112.89-7.3Q113.79-8.45 114.11-8.45 114.44-8.45 114.44-8.05 114.44-7.65 113.29-6.45 112.14-5.25 111.46-4.55 110.79-3.85 110.54-3.63 110.29-3.4 109.61-2.78 108.94-2.15 108.59-1.9 108.24-1.65 107.59-1.15 106.94-0.65 106.44-0.43 105.94-0.2 105.29 0.1L105.29 0.1Q104.24 0.55 102.79 0.55ZM125.34-16.1L125.34-16.1 132.54-16.2Q132.69-16.1 132.69-16.05L132.69-16.05Q132.69-15.6 126.46-14.8 120.24-14 119.74-13.85L119.74-13.85Q118.79-13 116.24-8.78 113.69-4.55 113.69-2.6L113.69-2.6Q113.69-0.75 116.24-0.75L116.24-0.75Q117.44-0.75 119.39-1.5 121.34-2.25 122.39-2.9L122.39-2.9Q125.19-4.65 128.39-8.05L128.39-8.05Q129.09-8.75 129.34-8.75L129.34-8.75Q129.49-8.75 129.49-8.45 129.49-8.15 128.74-7.25L128.74-7.25Q126.14-4.05 122.89-2.1L122.89-2.1Q118.99 0.3 115.44 0.3L115.44 0.3Q113.89 0.3 112.91-0.38 111.94-1.05 111.94-3.1 111.94-5.15 113.74-8.72 115.54-12.3 116.49-14.05L116.49-14.05Q115.79-13.9 115.29-13.9L115.29-13.9Q113.84-13.9 113.84-15.05L113.84-15.05Q113.84-15.9 115.04-16.25L115.04-16.25Q115.19-16.25 115.49-16.3L115.49-16.3 118.39-16.3Q119.29-17.45 120.44-18.95L120.44-18.95Q121.84-20.75 122.34-20.75 122.84-20.75 123.59-20.35 124.34-19.95 124.34-19.4 124.34-18.85 121.94-16.15L121.94-16.15Q123.24-16.1 125.34-16.1ZM129.68 0.65L129.68 0.65Q129.13 0.65 128.68 0.5L128.68 0.5Q125.48-0.4 125.48-3.1L125.48-3.1Q125.48-6.6 129.88-11.2 134.28-15.8 137.78-15.8L137.78-15.8Q138.93-15.8 139.66-15.18 140.38-14.55 140.38-13.65L140.38-13.65Q140.38-10.85 136.16-8.3 131.93-5.75 129.28-5.75L129.28-5.75Q128.88-5.75 128.58-5.85L128.58-5.85Q127.83-4.5 127.83-3L127.83-3Q127.83-0.4 130.31-0.4 132.78-0.4 136.73-3.75L136.73-3.75Q139.78-6.2 141.93-8.95L141.93-8.95Q142.38-9.55 142.71-9.55 143.03-9.55 143.03-9.25 143.03-8.95 142.63-8.4L142.63-8.4Q139.93-4.85 136.13-2.1 132.33 0.65 129.68 0.65ZM139.13-13.75L139.13-13.75Q139.13-14.35 137.86-14.35 136.58-14.35 134.23-12.4L134.23-12.4Q131.08-9.8 129.33-6.95L129.33-6.95Q129.63-6.85 129.98-6.85L129.98-6.85Q131.88-6.85 135.06-8.88 138.23-10.9 139.03-13.3L139.03-13.3Q139.13-13.55 139.13-13.75ZM171.03-2.05L171.03-2.05Q169.83-0.2 169.83 0.35 169.83 0.9 170.28 1.15L170.28 1.15Q170.28 1.2 169.38 1.9L169.38 1.9Q168.58 2.3 167.58 2.3 166.58 2.3 166.13 2.08 165.68 1.85 165.83 1.35L165.83 1.35Q166.53-0.9 171.08-7.68 175.63-14.45 177.18-17.25L177.18-17.25Q180.53-23.3 180.53-26.9L180.53-26.9Q180.53-28.4 180.03-29.45L180.03-29.45Q179.03-31.5 175.28-31.5L175.28-31.5Q169.43-31.5 163.18-26.45L163.18-26.45Q158.18-22.4 155.53-17.88 152.88-13.35 152.88-9.8L152.88-9.8Q152.88-4.7 157.38-4.6L157.38-4.6Q157.58-4.6 157.78-4.6L157.78-4.6Q163.53-4.6 166.68-8.75L166.68-8.75Q167.88-10.4 167.88-11.55 167.88-12.7 167.38-13L167.38-13Q167.33-13.05 167.33-13.2 167.33-13.35 167.63-13.35L167.63-13.35Q168.93-13.35 168.93-11.65L168.93-11.65Q168.93-10.6 167.9-8.8 166.88-7 164.28-5.4 161.68-3.8 158.23-3.8 154.78-3.8 152.73-5.95 150.68-8.1 150.68-11.6L150.68-11.6Q150.68-19.5 160.98-27.75L160.98-27.75Q163.63-29.85 167.95-31.2 172.28-32.55 176.23-32.55 180.18-32.55 181.6-31.18 183.03-29.8 183.03-27.5L183.03-27.5Q183.03-24 180.18-18.05L180.18-18.05Q179.28-16.2 176.13-11.3L176.13-11.3 179.98-16.2Q182.78-19.85 189.68-26.6L189.68-26.6Q191.18-28.05 193-29.03 194.83-30 196.13-30L196.13-30Q197.93-30 197.93-28.1L197.93-28.1Q197.93-26.45 196.35-23.13 194.78-19.8 193.18-16.82 191.58-13.85 191.23-12.93 190.88-12 190.73-11.45 190.58-10.9 190.53-10.85L190.53-10.85Q190.68-11.1 193.83-14.68 196.98-18.25 203.13-23.6L203.13-23.6 211.13-30.2Q212.08-31 212.83-31 213.58-31 214.05-29.75 214.53-28.5 214.53-27.73 214.53-26.95 212.13-24.5L212.13-24.5Q205.88-18.1 201.53-10.5 197.18-2.9 197.18 0.35L197.18 0.35Q197.18 1.2 197.48 1.53 197.78 1.85 198.43 1.73 199.08 1.6 201.15 0.7 203.23-0.2 203.88-0.35L203.88-0.35Q204.13-0.25 204.13-0.1L204.13-0.1Q204.13 0.65 201.5 2 198.88 3.35 197.55 3.35 196.23 3.35 195.93 2.9L195.93 2.9Q195.03 1.6 195.03-0.25L195.03-0.25Q195.03-4.55 199.63-12.6L199.63-12.6Q202.58-17.65 208.73-26.2L208.73-26.2Q203.93-22.3 195.73-14.25 187.53-6.2 184.98-1.65L184.98-1.65Q183.68 0.7 181.83 0.7L181.83 0.7Q180.98 0.7 180.98 0.1L180.98 0.1Q180.98-0.1 182-1.7 183.03-3.3 186.53-9.2L186.53-9.2Q195.13-24.15 195.13-27.2L195.13-27.2Q195.13-28 194.58-28L194.58-28Q193.78-28 192.23-26.65L192.23-26.65Q186.68-22 180.43-14.5 174.18-7 171.03-2.05ZM219.73-10.6L219.73-10.6Q219.73-8.85 216.38-4.75L216.38-4.75Q212.43 0.1 209.63 0.1L209.63 0.1 208.83 0.1Q207.53 0.1 206.78-1.25L206.78-1.25Q206.18-2.2 206.18-3.35L206.18-3.35Q206.18-6.35 210.55-11.78 214.93-17.2 217.63-17.2L217.63-17.2Q220.18-17.2 220.18-14.5L220.18-14.5Q220.18-13.8 219.93-12.7L219.93-12.7Q219.98-12.55 220.88-12.55 221.78-12.55 223.63-13.5L223.63-13.5Q223.58-12.65 219.68-11.05L219.68-11.05Q219.73-10.85 219.73-10.6ZM216.48-13.2L216.48-13.2Q214.78-13.2 211.65-9.2 208.53-5.2 208.53-3.3 208.53-1.4 209.73-1.4L209.73-1.4Q211.88-1.4 215.18-5.3 218.48-9.2 218.48-10.9L218.48-10.9Q217.68-11.35 216.48-13.2ZM234.27-19.65L234.27-19.65Q235.77-19.65 236.82-18.65 237.87-17.65 237.87-15.85L237.87-15.85Q237.87-11.9 231.32-5.95L231.32-5.95Q225.77-0.95 222.37 0.15L222.37 0.15Q221.82 0.15 220.92-0.45 220.02-1.05 220.02-1.55L220.02-1.55Q220.02-2.65 222.42-9 224.82-15.35 225.72-16.1L225.72-16.1Q225.92-16.3 226.37-16.3 226.82-16.3 227.32-15.83 227.82-15.35 227.87-14.7L227.87-14.7Q227.87-14.65 225.4-8.9 222.92-3.15 223.07-2.05L223.07-2.05Q225.22-2.7 230.75-7.3 236.27-11.9 236.27-15.55L236.27-15.55Q236.27-17.75 234.07-18.75L234.07-18.75Q233.72-18.9 233.72-19.2L233.72-19.2Q233.72-19.65 234.27-19.65ZM246.62-20.4Q247.37-20.4 248.05-19.93 248.72-19.45 248.72-18.8 248.72-18.15 248.1-17.68 247.47-17.2 246.72-17.2 245.97-17.2 245.35-17.75 244.72-18.3 244.72-19L244.72-19Q244.72-20.4 246.62-20.4L246.62-20.4ZM237.57 0.55L237.57 0.55Q235.02 0.55 235.02-2.75L235.02-2.75Q235.02-5.45 237.97-10.23 240.92-15 242.72-15.05L242.72-15.05Q243.22-15.05 243.85-14.65 244.47-14.25 244.47-13.85L244.47-13.85Q244.22-13.5 243.87-13.08 243.52-12.65 243.12-12.15 242.72-11.65 242.02-10.73 241.32-9.8 240.67-8.95L240.67-8.95Q236.92-4.1 236.92-2.27 236.92-0.45 238.17-0.45L238.17-0.45Q239.22-0.45 241.02-1.6L241.02-1.6Q245.22-4.2 247.67-7.3L247.67-7.3Q248.57-8.45 248.9-8.45 249.22-8.45 249.22-8.05 249.22-7.65 248.07-6.45 246.92-5.25 246.25-4.55 245.57-3.85 245.32-3.63 245.07-3.4 244.4-2.78 243.72-2.15 243.37-1.9 243.02-1.65 242.37-1.15 241.72-0.65 241.22-0.43 240.72-0.2 240.07 0.1L240.07 0.1Q239.02 0.55 237.57 0.55ZM249.62 0.65L249.62 0.65Q249.07 0.65 248.62 0.5L248.62 0.5Q245.42-0.4 245.42-3.1L245.42-3.1Q245.42-6.6 249.82-11.2 254.22-15.8 257.72-15.8L257.72-15.8Q258.87-15.8 259.59-15.18 260.32-14.55 260.32-13.65L260.32-13.65Q260.32-10.85 256.09-8.3 251.87-5.75 249.22-5.75L249.22-5.75Q248.82-5.75 248.52-5.85L248.52-5.85Q247.77-4.5 247.77-3L247.77-3Q247.77-0.4 250.24-0.4 252.72-0.4 256.67-3.75L256.67-3.75Q259.72-6.2 261.87-8.95L261.87-8.95Q262.32-9.55 262.64-9.55 262.97-9.55 262.97-9.25 262.97-8.95 262.57-8.4L262.57-8.4Q259.87-4.85 256.07-2.1 252.27 0.65 249.62 0.65ZM259.07-13.75L259.07-13.75Q259.07-14.35 257.79-14.35 256.52-14.35 254.17-12.4L254.17-12.4Q251.02-9.8 249.27-6.95L249.27-6.95Q249.57-6.85 249.92-6.85L249.92-6.85Q251.82-6.85 254.99-8.88 258.17-10.9 258.97-13.3L258.97-13.3Q259.07-13.55 259.07-13.75Z"
+                  opacity="1"
+                  transform="matrix(1,0,0,1,0,0)"
+                  fill="#aaadae"
+                  data-fill-palette-color="primary"
+                />
+              </g>
+
+              <g transform="translate(200 5), scale(1)" height="75" width="75">
+                <rect
+                  x="34.571"
+                  y="16.321"
+                  fill="#0db0b9"
+                  width="5.716"
+                  height="5.716"
+                  data-fill-palette-color="accent"
+                />
+                <rect
+                  x="34.571"
+                  y="28.368"
+                  fill="#0db0b9"
+                  width="5.716"
+                  height="5.716"
+                  data-fill-palette-color="accent"
+                />
+                <rect
+                  x="34.571"
+                  y="40.416"
+                  fill="#0db0b9"
+                  width="5.716"
+                  height="5.716"
+                  data-fill-palette-color="accent"
+                />
+                <rect
+                  x="34.571"
+                  y="52.464"
+                  fill="#0db0b9"
+                  width="5.716"
+                  height="5.716"
+                  data-fill-palette-color="accent"
+                />
+                <rect
+                  x="80.349"
+                  y="16.321"
+                  fill="#0db0b9"
+                  width="5.716"
+                  height="5.716"
+                  data-fill-palette-color="accent"
+                />
+                <rect
+                  x="80.349"
+                  y="28.368"
+                  fill="#0db0b9"
+                  width="5.716"
+                  height="5.716"
+                  data-fill-palette-color="accent"
+                />
+                <rect
+                  x="80.349"
+                  y="40.416"
+                  fill="#0db0b9"
+                  width="5.716"
+                  height="5.716"
+                  data-fill-palette-color="accent"
+                />
+                <rect
+                  x="80.349"
+                  y="52.464"
+                  fill="#0db0b9"
+                  width="5.716"
+                  height="5.716"
+                  data-fill-palette-color="accent"
+                />
+
+                <path
+                  fill="#0db0b9"
+                  d="M52.324 50.356c-0.188 0-0.375-0.048-0.546-0.142-0.354-0.199-0.572-0.572-0.572-0.975V26.271c0-0.404 0.218-0.777 0.572-0.975 0.354-0.194 0.786-0.19 1.13 0.024l18.704 11.483c0.332 0.203 0.532 0.563 0.532 0.951 0 0.389-0.201 0.749-0.532 0.951L52.909 50.19C52.73 50.301 52.527 50.356 52.324 50.356zM53.442 28.268v18.974l15.45-9.488L53.442 28.268z"
+                  data-fill-palette-color="accent"
+                />
+
+                <path
+                  fill="#0db0b9"
+                  d="M81.978 8.301c4.025 0 7.3 3.275 7.3 7.3V59.3c0 4.025-3.275 7.3-7.3 7.3H38.279c-4.025 0-7.3-3.275-7.3-7.3V15.601c0-4.025 3.275-7.3 7.3-7.3H81.978M81.978 6.066H38.279c-5.266 0-9.535 4.269-9.535 9.535V59.3c0 5.266 4.269 9.535 9.535 9.535h43.699c5.266 0 9.535-4.269 9.535-9.535V15.601C91.512 10.335 87.243 6.066 81.978 6.066L81.978 6.066z"
+                  data-fill-palette-color="accent"
+                />
+
+                <path
+                  fill="#0db0b9"
+                  d="M74.63 71.069h-2.299l0.225 0.924c0.478 1.957 0.164 3.985-0.884 5.706-1.048 1.722-2.704 2.931-4.661 3.409l-38.573 9.386c-1.953 0.474-3.98 0.164-5.706-0.886-1.722-1.047-2.931-2.704-3.409-4.661l-9.383-38.57c-0.478-1.957-0.161-3.985 0.886-5.706 1.047-1.722 2.704-2.931 4.661-3.409l11.023-2.682V32.28l-11.551 2.809c-2.538 0.618-4.683 2.187-6.043 4.419-1.357 2.23-1.765 4.858-1.148 7.396l9.386 38.57c0.615 2.538 2.184 4.683 4.417 6.043 1.552 0.943 3.293 1.429 5.065 1.429 0.775 0 1.558-0.094 2.331-0.284l38.573-9.386c2.538-0.615 4.683-2.184 6.04-4.417 1.36-2.23 1.765-4.858 1.148-7.396L74.63 71.069z"
+                  data-fill-palette-color="accent"
+                />
+              </g>
+            </svg>
+          </a>
           <div class="hamburger" id="hamburger"><i class="fa fa-bars"></i></div>
 
           <div class="navbar-container">
@@ -231,22 +1460,86 @@
           <i class="fa-solid fa-angle-left" id="gallery-left-icon"></i>
         </span>
         <div class="carousel" id="gallery-carousel">
-          <img src="/img/600/5.jpg" alt="test" draggable="false" />
-          <img src="/img/600/8.jpg" alt="test" draggable="false" />
-          <img src="/img/600/12.jpg" alt="test" draggable="false" />
-          <img src="/img/600/19.jpg" alt="test" draggable="false" />
-          <img src="/img/600/22.jpg" alt="test" draggable="false" />
-          <img src="/img/600/23.jpg" alt="test" draggable="false" />
-          <img src="/img/600/26.jpg" alt="test" draggable="false" />
-          <img src="/img/600/28.jpg" alt="test" draggable="false" />
-          <img src="/img/600/30.jpg" alt="test" draggable="false" />
-          <img src="/img/600/39.jpg" alt="test" draggable="false" />
-          <img src="/img/600/45.jpg" alt="test" draggable="false" />
-          <img src="/img/600/60.jpg" alt="test" draggable="false" />
-          <img src="/img/600/67.jpg" alt="test" draggable="false" />
-          <img src="/img/600/104.jpg" alt="test" draggable="false" />
-          <img src="/img/600/106.jpg" alt="test" draggable="false" />
-          <img src="/img/600/666.jpg" alt="test" draggable="false" />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/584/original/5.jpg?1686730634"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/585/original/8.jpg?1686730734"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/586/original/12.jpg?1686730918"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/587/original/19.jpg?1686730954"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/588/original/22.jpg?1686731075"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/590/original/23.jpg?1686731281"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/589/original/26.jpg?1686731173"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/591/original/28.jpg?1686731314"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/592/original/30.jpg?1686731349"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/593/original/39.jpg?1686731390"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/594/original/45.jpg?1686731450"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/595/original/60.jpg?1686731485"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/596/original/67.jpg?1686731543"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/597/original/104.jpg?1686731578"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/598/original/106.jpg?1686731605"
+            alt="The man in the high castle"
+            draggable="false"
+          />
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/599/original/666.jpg?1686731667"
+            alt="The man in the high castle"
+            draggable="false"
+          />
         </div>
         <span class="switch-right">
           <i class="fa-solid fa-angle-right" id="gallery-right-icon"></i>
@@ -259,12 +1552,22 @@
 
         <div class="trailer-container">
           <!--
-          <video poster="/video/trailer-poster-1024.jpg" controls>
-            <source src="/video/trailer-360.mp4" type="video/mp4" />
+          <video
+            poster="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/628/original/trailer-1024.jpg?1686733292"
+            controls
+          >
+            <source
+              src="https://drive.google.com/file/d/1GQWz8PbrxzWgLHPCYNK81SbqZRYXdU5_/view?usp=drive_link"
+              type="video/mp4"
+            />
           </video>
-           -->
+        -->
+
           <div class="video">
-            <img src="/img/poster-600-1.jpg" />
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/685/original/poster-600-1.jpg?1686752644"
+              alt="The man in the high castle"
+            />
           </div>
 
           <!-- Quotes -->
@@ -301,7 +1604,7 @@
           <div class="actor-card">
             <div class="actor-card-image">
               <img
-                src="/img/actor/320/1.Alexa-Davalos.jpg"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/601/original/1.Alexa-Davalos.jpg?1686732023"
                 alt="Alexa Davalos"
               />
             </div>
@@ -319,7 +1622,7 @@
           <div class="actor-card">
             <div class="actor-card-image">
               <img
-                src="/img/actor/320/2.Luke-Kleintank.jpg"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/602/original/2.Luke-Kleintank.jpg?1686732060"
                 alt="Luke Kleintank"
               />
             </div>
@@ -336,7 +1639,10 @@
           </div>
           <div class="actor-card">
             <div class="actor-card-image">
-              <img src="/img/actor/320/3.Rufus-Sewell.jpg" alt="Rufus Sewell" />
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/603/original/3.Rufus-Sewell.jpg?1686732088"
+                alt="Rufus Sewell"
+              />
             </div>
             <div class="actor-card-text">
               <p class="actor-card-text-name">
@@ -351,7 +1657,10 @@
           </div>
           <div class="actor-card">
             <div class="actor-card-image">
-              <img src="/img/actor/320/4.Rupert-Evans.jpg" alt="Rupert Evans" />
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/604/original/4.Rupert-Evans.jpg?1686732110"
+                alt="Rupert Evans"
+              />
             </div>
             <div class="actor-card-text">
               <p class="actor-card-text-name">
@@ -367,7 +1676,7 @@
           <div class="actor-card">
             <div class="actor-card-image">
               <img
-                src="/img/actor/320/5.Joel-de-la-Fuente.jpg"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/605/original/5.Joel-de-la-Fuente.jpg?1686732141"
                 alt="Joel de la Fuente"
               />
             </div>
@@ -385,7 +1694,7 @@
           <div class="actor-card">
             <div class="actor-card-image">
               <img
-                src="/img/actor/320/6.Chelah-Horsdal.jpg"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/606/original/6.Chelah-Horsdal.jpg?1686732164"
                 alt="Chelah Horsdal"
               />
             </div>
@@ -403,7 +1712,7 @@
           <div class="actor-card">
             <div class="actor-card-image">
               <img
-                src="/img/actor/320/7.Brennan-Brown.jpg"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/607/original/7.Brennan-Brown.jpg?1686732192"
                 alt="Brennan Brown"
               />
             </div>
@@ -420,7 +1729,10 @@
           </div>
           <div class="actor-card">
             <div class="actor-card-image">
-              <img src="/img/actor/320/8.DJ-Qualls.jpg" alt="DJ Qualls" />
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/608/original/8.DJ-Qualls.jpg?1686732217"
+                alt="DJ Qualls"
+              />
             </div>
             <div class="actor-card-text">
               <p class="actor-card-text-name">
@@ -436,7 +1748,7 @@
           <div class="actor-card">
             <div class="actor-card-image">
               <img
-                src="/img/actor/320/9.Cary-Hiroyuki-Tagawa.jpg"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/609/original/9.Cary-Hiroyuki-Tagawa.jpg?1686732242"
                 alt="Cary-Hiroyuki Tagawa"
               />
             </div>
@@ -454,7 +1766,7 @@
           <div class="actor-card">
             <div class="actor-card-image">
               <img
-                src="/img/actor/320/10.Gracyn-Shinyei.jpg"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/610/original/10.Gracyn-Shinyei.jpg?1686732270"
                 alt="Gracyn Shinyei"
               />
             </div>
@@ -466,7 +1778,7 @@
           <div class="actor-card">
             <div class="actor-card-image">
               <img
-                src="/img/actor/320/11.Genea-Charpentier.jpg"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/611/original/11.Genea-Charpentier.jpg?1686732293"
                 alt="Genea Charpentier"
               />
             </div>
@@ -477,7 +1789,10 @@
           </div>
           <div class="actor-card">
             <div class="actor-card-image">
-              <img src="/img/actor/320/12.Arnold-Chun.jpg" alt="Arnold Chun" />
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/612/original/12.Arnold-Chun.jpg?1686732328"
+                alt="Arnold Chun"
+              />
             </div>
             <div class="actor-card-text">
               <p class="actor-card-text-name">Arnold Chun</p>
@@ -486,7 +1801,10 @@
           </div>
           <div class="actor-card">
             <div class="actor-card-image">
-              <img src="/img/actor/320/13.Quinn-Lord.jpg" alt="Quinn Lord" />
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/613/original/13.Quinn-Lord.jpg?1686732348"
+                alt="Quinn Lord"
+              />
             </div>
             <div class="actor-card-text">
               <p class="actor-card-text-name">
@@ -501,7 +1819,10 @@
           </div>
           <div class="actor-card">
             <div class="actor-card-image">
-              <img src="/img/actor/320/14.Jason-Mara.jpg" alt="Jason O'Mara" />
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/614/original/14.Jason-Mara.jpg?1686732370"
+                alt="Jason O'Mara"
+              />
             </div>
             <div class="actor-card-text">
               <p class="actor-card-text-name">
@@ -517,7 +1838,7 @@
           <div class="actor-card">
             <div class="actor-card-image">
               <img
-                src="/img/actor/320/15.Bella-Heathcote.jpg"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/615/original/15.Bella-Heathcote.jpg?1686732394"
                 alt="Bella Heathcote"
               />
             </div>
@@ -534,7 +1855,10 @@
           </div>
           <div class="actor-card">
             <div class="actor-card-image">
-              <img src="/img/actor/320/16.Rick-Worthy.jpg" alt="Rick Worthy" />
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/616/original/16.Rick-Worthy.jpg?1686732416"
+                alt="Rick Worthy"
+              />
             </div>
             <div class="actor-card-text">
               <p class="actor-card-text-name">
@@ -549,7 +1873,10 @@
           </div>
           <div class="actor-card">
             <div class="actor-card-image">
-              <img src="/img/actor/320/17.Lee-Shorten.jpg" alt="Lee Shorten" />
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/617/original/17.Lee-Shorten.jpg?1686732440"
+                alt="Lee Shorten"
+              />
             </div>
             <div class="actor-card-text">
               <p class="actor-card-text-name">Lee Shorten</p>
@@ -559,7 +1886,7 @@
           <div class="actor-card">
             <div class="actor-card-image">
               <img
-                src="/img/actor/320/18.Kenneth-Tigar.jpg"
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/618/original/18.Kenneth-Tigar.jpg?1686732462"
                 alt="Kenneth Tigar"
               />
             </div>
@@ -602,7 +1929,10 @@
         <h2>Special for you</h2>
         <div class="suggested-container">
           <div class="suggested-card">
-            <img src="/img/suggested/sense8-285.jpg" alt="Sense8" />
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/622/original/sense8-285.jpg?1686732666"
+              alt="Sense8"
+            />
             <div class="suggested-text">
               <h3>
                 <a
@@ -635,7 +1965,7 @@
 
           <div class="suggested-card">
             <img
-              src="/img/suggested/the-americans-285.jpg"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/620/original/the-americans-285.jpg?1686732612"
               alt="The Americans"
             />
             <div class="suggested-text">
@@ -669,7 +1999,10 @@
           </div>
 
           <div class="suggested-card">
-            <img src="/img/suggested/sneaky-pete-285.jpg" alt="Sneaky Pete" />
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/621/original/sneaky-pete-285.jpg?1686732639"
+              alt="Sneaky Pete"
+            />
             <div class="suggested-text">
               <h3>
                 <a
@@ -701,7 +2034,10 @@
           </div>
 
           <div class="suggested-card">
-            <img src="/img/suggested/sense8-285.jpg" alt="The Expanse" />
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/623/original/the-expanse-285.jpg?1686732916"
+              alt="The Expanse"
+            />
             <div class="suggested-text">
               <h3>
                 <a
@@ -733,7 +2069,10 @@
           </div>
 
           <div class="suggested-card">
-            <img src="/img/suggested/counterpart-285.jpg" alt="Counterpart" />
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/619/original/counterpart-285.jpg?1686732574"
+              alt="Counterpart"
+            />
             <div class="suggested-text">
               <h3>
                 <a
@@ -765,7 +2104,10 @@
           </div>
 
           <div class="suggested-card">
-            <img src="/img/suggested/legion-285.jpg" alt="Legion" />
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/624/original/legion-285.jpg?1686732950"
+              alt="Legion"
+            />
             <div class="suggested-text">
               <h3>
                 <a
@@ -797,7 +2139,10 @@
           </div>
 
           <div class="suggested-card">
-            <img src="/img/suggested/watchmen-285.jpg" alt="Watchmen" />
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/625/original/watchmen-285.jpg?1686732974"
+              alt="Watchmen"
+            />
             <div class="suggested-text">
               <h3>
                 <a
@@ -829,7 +2174,10 @@
           </div>
 
           <div class="suggested-card">
-            <img src="/img/suggested/westworld-285.jpg" alt="Westworld" />
+            <img
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/626/original/westworld-285.jpg?1686733002"
+              alt="Westworld"
+            />
             <div class="suggested-text">
               <h3>
                 <a
@@ -872,7 +2220,115 @@
                 title="Homepage"
                 class="footer-logo"
                 id="footer-logo"
-              ></a>
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 100 100"
+                  data-background-color="#ffffff"
+                  height="40"
+                  width="160"
+                >
+                  <g transform="translate(-150 70), scale(1.2)">
+                    <path
+                      d="M26.4-12.55L26.4-12.55Q31.25-12.4 31.53-12.4 31.8-12.4 31.85-12.4L31.85-12.4Q33.05-12.5 33.05-12.05L33.05-12.05Q33.05-11.35 31.1-11.35L31.1-11.35 26.85-11.45Q25.55-11.35 25.3-11.2L25.3-11.2Q23.2-8.6 19.65-3.68 16.1 1.25 16.1 2.2L16.1 2.2Q16.1 2.6 17 2L17 2Q17.55 2 17.55 2.15L17.55 2.15Q17.55 2.4 16.45 2.9L16.45 2.9 15.05 3.65Q14.1 4.45 12.88 4.45 11.65 4.45 11.75 3.85L11.75 3.85Q11.8 2.65 15.3-2.23 18.8-7.1 22.55-11.5L22.55-11.5Q18.95-10.85 17.05-10.85L17.05-10.85Q16.85-10.9 16.85-11.18 16.85-11.45 17.45-11.95 18.05-12.45 18.73-12.45 19.4-12.45 20.9-12.5L20.9-12.5 23.45-12.5Q25.15-14.8 31-23.1L31-23.1Q33.4-26.55 33.4-28.8L33.4-28.8Q33.4-32.3 28.2-32.3L28.2-32.3Q24.15-32.3 18.68-30.05 13.2-27.8 8.6-23.9L8.6-23.9Q5.35-21.2 3.45-18.05 1.55-14.9 1.55-12.45L1.55-12.45Q1.55-8.5 6.25-8.5L6.25-8.5Q6.65-8.5 7.1-8.55L7.1-8.55Q10.15-8.8 12.88-12.03 15.6-15.25 15.6-17.45L15.6-17.45Q15.6-17.65 15.55-17.9L15.55-17.9Q16.85-17.65 16.85-16.35L16.85-16.35Q16.85-14.2 14.05-11.3L14.05-11.3Q10.25-7.35 5.25-7.35L5.25-7.35Q2.5-7.35 0.95-8.8-0.6-10.25-0.6-12.75L-0.6-12.75Q-0.6-18.65 6.6-24.65L6.6-24.65Q11.8-28.9 17.65-31.08 23.5-33.25 27.83-33.25 32.15-33.25 34.27-32 36.4-30.75 36.4-28.53 36.4-26.3 34.45-23.5L34.45-23.5Q33.3-21.65 26.4-12.55ZM48.2-14.95L48.2-14.95 48.9-15.1Q49.45-15.1 49.95-14.65 50.45-14.2 50.45-13.95 50.45-13.7 47.35-9.13 44.25-4.55 44.25-2.75L44.25-2.75Q44.25-2.6 44.3-2.45L44.3-2.45Q44.55-1.3 45.4-1.3L45.4-1.3Q48-1.3 54.9-9.9L54.9-9.9Q55.05-10.1 55.25-10.1 55.45-10.1 55.45-9.73 55.45-9.35 55-8.75L55-8.75Q48.6-0.2 45.25-0.2L45.25-0.2Q44.8-0.2 44.4-0.35L44.4-0.35Q42.2-1.2 42.2-3.65L42.2-3.65Q42.2-4.5 42.4-5.35L42.4-5.35 39.3-2.35Q36.35 0.25 35.02 0.25 33.7 0.25 32.5-0.6L32.5-0.6Q31.15-1.6 31.15-3.25L31.15-3.25Q31.15-6.9 36.25-11.98 41.35-17.05 45.6-17.05L45.6-17.05Q47.25-17.05 47.8-15.9L47.8-15.9Q47.95-15.5 48.05-15.23 48.15-14.95 48.2-14.95ZM33.25-2.65L33.25-2.65Q33.25-0.85 34.5-0.85L34.5-0.85Q37.4-0.85 42.4-7.2L42.4-7.2 47.7-14.5Q47.3-15.2 46.4-15.2L46.4-15.2Q43.35-15.2 38.3-10.48 33.25-5.75 33.25-2.65ZM65.75-19.65L65.75-19.65Q67.25-19.65 68.3-18.65 69.35-17.65 69.35-15.85L69.35-15.85Q69.35-11.9 62.8-5.95L62.8-5.95Q57.25-0.95 53.85 0.15L53.85 0.15Q53.3 0.15 52.4-0.45 51.5-1.05 51.5-1.55L51.5-1.55Q51.5-2.65 53.9-9 56.3-15.35 57.2-16.1L57.2-16.1Q57.4-16.3 57.85-16.3 58.3-16.3 58.8-15.83 59.3-15.35 59.35-14.7L59.35-14.7Q59.35-14.65 56.87-8.9 54.4-3.15 54.55-2.05L54.55-2.05Q56.7-2.7 62.22-7.3 67.75-11.9 67.75-15.55L67.75-15.55Q67.75-17.75 65.55-18.75L65.55-18.75Q65.2-18.9 65.2-19.2L65.2-19.2Q65.2-19.65 65.75-19.65ZM80.29-10.6L80.29-10.6Q80.29-8.85 76.94-4.75L76.94-4.75Q72.99 0.1 70.19 0.1L70.19 0.1 69.39 0.1Q68.09 0.1 67.34-1.25L67.34-1.25Q66.74-2.2 66.74-3.35L66.74-3.35Q66.74-6.35 71.12-11.78 75.49-17.2 78.19-17.2L78.19-17.2Q80.74-17.2 80.74-14.5L80.74-14.5Q80.74-13.8 80.49-12.7L80.49-12.7Q80.54-12.55 81.44-12.55 82.34-12.55 84.19-13.5L84.19-13.5Q84.14-12.65 80.24-11.05L80.24-11.05Q80.29-10.85 80.29-10.6ZM77.04-13.2L77.04-13.2Q75.34-13.2 72.22-9.2 69.09-5.2 69.09-3.3 69.09-1.4 70.29-1.4L70.29-1.4Q72.44-1.4 75.74-5.3 79.04-9.2 79.04-10.9L79.04-10.9Q78.24-11.35 77.04-13.2ZM91.49 0.25L91.49 0.25Q87.74 0.25 87.74-3.9L87.74-3.9Q87.74-6 88.84-8.5 89.94-11 91.24-12.7L91.24-12.7Q90.99-12.65 90.59-12.65L90.59-12.65Q89.39-12.65 88.59-14.35L88.59-14.35 84.89-9.55Q81.79-5.7 81.29-5.7L81.29-5.7Q81.04-5.7 81.04-5.9L81.04-5.9Q81.04-6.4 81.89-7.35L81.89-7.35Q86.24-12.4 88.04-15.9L88.04-15.9Q89.19-20.25 90.94-20.25L90.94-20.25Q92.09-20.25 92.09-19.25 92.09-18.25 90.84-16.7L90.84-16.7 89.64-15.1Q89.64-14.05 91.19-14.05L91.19-14.05Q92.09-14.05 93.19-14.7L93.19-14.7 94.49-15.5Q94.59-15.55 94.99-15.55 95.39-15.55 95.84-15.05 96.29-14.55 96.14-14.15L96.14-14.15 92.69-9.8Q89.49-5.7 89.49-3.33 89.49-0.95 91.69-0.95L91.69-0.95Q93.99-0.95 97.34-3.4L97.34-3.4Q99.34-4.85 100.99-6.65L100.99-6.65Q102.54-8.45 102.69-8.45L102.69-8.45Q103.04-8.45 103.04-8.08 103.04-7.7 102.59-7.2L102.59-7.2 100.99-5.4Q99.64-4 97.99-2.7L97.99-2.7Q94.04 0.25 91.49 0.25ZM111.84-20.4Q112.59-20.4 113.26-19.93 113.94-19.45 113.94-18.8 113.94-18.15 113.31-17.68 112.69-17.2 111.94-17.2 111.19-17.2 110.56-17.75 109.94-18.3 109.94-19L109.94-19Q109.94-20.4 111.84-20.4L111.84-20.4ZM102.79 0.55L102.79 0.55Q100.24 0.55 100.24-2.75L100.24-2.75Q100.24-5.45 103.19-10.23 106.14-15 107.94-15.05L107.94-15.05Q108.44-15.05 109.06-14.65 109.69-14.25 109.69-13.85L109.69-13.85Q109.44-13.5 109.09-13.08 108.74-12.65 108.34-12.15 107.94-11.65 107.24-10.73 106.54-9.8 105.89-8.95L105.89-8.95Q102.14-4.1 102.14-2.27 102.14-0.45 103.39-0.45L103.39-0.45Q104.44-0.45 106.24-1.6L106.24-1.6Q110.44-4.2 112.89-7.3L112.89-7.3Q113.79-8.45 114.11-8.45 114.44-8.45 114.44-8.05 114.44-7.65 113.29-6.45 112.14-5.25 111.46-4.55 110.79-3.85 110.54-3.63 110.29-3.4 109.61-2.78 108.94-2.15 108.59-1.9 108.24-1.65 107.59-1.15 106.94-0.65 106.44-0.43 105.94-0.2 105.29 0.1L105.29 0.1Q104.24 0.55 102.79 0.55ZM125.34-16.1L125.34-16.1 132.54-16.2Q132.69-16.1 132.69-16.05L132.69-16.05Q132.69-15.6 126.46-14.8 120.24-14 119.74-13.85L119.74-13.85Q118.79-13 116.24-8.78 113.69-4.55 113.69-2.6L113.69-2.6Q113.69-0.75 116.24-0.75L116.24-0.75Q117.44-0.75 119.39-1.5 121.34-2.25 122.39-2.9L122.39-2.9Q125.19-4.65 128.39-8.05L128.39-8.05Q129.09-8.75 129.34-8.75L129.34-8.75Q129.49-8.75 129.49-8.45 129.49-8.15 128.74-7.25L128.74-7.25Q126.14-4.05 122.89-2.1L122.89-2.1Q118.99 0.3 115.44 0.3L115.44 0.3Q113.89 0.3 112.91-0.38 111.94-1.05 111.94-3.1 111.94-5.15 113.74-8.72 115.54-12.3 116.49-14.05L116.49-14.05Q115.79-13.9 115.29-13.9L115.29-13.9Q113.84-13.9 113.84-15.05L113.84-15.05Q113.84-15.9 115.04-16.25L115.04-16.25Q115.19-16.25 115.49-16.3L115.49-16.3 118.39-16.3Q119.29-17.45 120.44-18.95L120.44-18.95Q121.84-20.75 122.34-20.75 122.84-20.75 123.59-20.35 124.34-19.95 124.34-19.4 124.34-18.85 121.94-16.15L121.94-16.15Q123.24-16.1 125.34-16.1ZM129.68 0.65L129.68 0.65Q129.13 0.65 128.68 0.5L128.68 0.5Q125.48-0.4 125.48-3.1L125.48-3.1Q125.48-6.6 129.88-11.2 134.28-15.8 137.78-15.8L137.78-15.8Q138.93-15.8 139.66-15.18 140.38-14.55 140.38-13.65L140.38-13.65Q140.38-10.85 136.16-8.3 131.93-5.75 129.28-5.75L129.28-5.75Q128.88-5.75 128.58-5.85L128.58-5.85Q127.83-4.5 127.83-3L127.83-3Q127.83-0.4 130.31-0.4 132.78-0.4 136.73-3.75L136.73-3.75Q139.78-6.2 141.93-8.95L141.93-8.95Q142.38-9.55 142.71-9.55 143.03-9.55 143.03-9.25 143.03-8.95 142.63-8.4L142.63-8.4Q139.93-4.85 136.13-2.1 132.33 0.65 129.68 0.65ZM139.13-13.75L139.13-13.75Q139.13-14.35 137.86-14.35 136.58-14.35 134.23-12.4L134.23-12.4Q131.08-9.8 129.33-6.95L129.33-6.95Q129.63-6.85 129.98-6.85L129.98-6.85Q131.88-6.85 135.06-8.88 138.23-10.9 139.03-13.3L139.03-13.3Q139.13-13.55 139.13-13.75ZM171.03-2.05L171.03-2.05Q169.83-0.2 169.83 0.35 169.83 0.9 170.28 1.15L170.28 1.15Q170.28 1.2 169.38 1.9L169.38 1.9Q168.58 2.3 167.58 2.3 166.58 2.3 166.13 2.08 165.68 1.85 165.83 1.35L165.83 1.35Q166.53-0.9 171.08-7.68 175.63-14.45 177.18-17.25L177.18-17.25Q180.53-23.3 180.53-26.9L180.53-26.9Q180.53-28.4 180.03-29.45L180.03-29.45Q179.03-31.5 175.28-31.5L175.28-31.5Q169.43-31.5 163.18-26.45L163.18-26.45Q158.18-22.4 155.53-17.88 152.88-13.35 152.88-9.8L152.88-9.8Q152.88-4.7 157.38-4.6L157.38-4.6Q157.58-4.6 157.78-4.6L157.78-4.6Q163.53-4.6 166.68-8.75L166.68-8.75Q167.88-10.4 167.88-11.55 167.88-12.7 167.38-13L167.38-13Q167.33-13.05 167.33-13.2 167.33-13.35 167.63-13.35L167.63-13.35Q168.93-13.35 168.93-11.65L168.93-11.65Q168.93-10.6 167.9-8.8 166.88-7 164.28-5.4 161.68-3.8 158.23-3.8 154.78-3.8 152.73-5.95 150.68-8.1 150.68-11.6L150.68-11.6Q150.68-19.5 160.98-27.75L160.98-27.75Q163.63-29.85 167.95-31.2 172.28-32.55 176.23-32.55 180.18-32.55 181.6-31.18 183.03-29.8 183.03-27.5L183.03-27.5Q183.03-24 180.18-18.05L180.18-18.05Q179.28-16.2 176.13-11.3L176.13-11.3 179.98-16.2Q182.78-19.85 189.68-26.6L189.68-26.6Q191.18-28.05 193-29.03 194.83-30 196.13-30L196.13-30Q197.93-30 197.93-28.1L197.93-28.1Q197.93-26.45 196.35-23.13 194.78-19.8 193.18-16.82 191.58-13.85 191.23-12.93 190.88-12 190.73-11.45 190.58-10.9 190.53-10.85L190.53-10.85Q190.68-11.1 193.83-14.68 196.98-18.25 203.13-23.6L203.13-23.6 211.13-30.2Q212.08-31 212.83-31 213.58-31 214.05-29.75 214.53-28.5 214.53-27.73 214.53-26.95 212.13-24.5L212.13-24.5Q205.88-18.1 201.53-10.5 197.18-2.9 197.18 0.35L197.18 0.35Q197.18 1.2 197.48 1.53 197.78 1.85 198.43 1.73 199.08 1.6 201.15 0.7 203.23-0.2 203.88-0.35L203.88-0.35Q204.13-0.25 204.13-0.1L204.13-0.1Q204.13 0.65 201.5 2 198.88 3.35 197.55 3.35 196.23 3.35 195.93 2.9L195.93 2.9Q195.03 1.6 195.03-0.25L195.03-0.25Q195.03-4.55 199.63-12.6L199.63-12.6Q202.58-17.65 208.73-26.2L208.73-26.2Q203.93-22.3 195.73-14.25 187.53-6.2 184.98-1.65L184.98-1.65Q183.68 0.7 181.83 0.7L181.83 0.7Q180.98 0.7 180.98 0.1L180.98 0.1Q180.98-0.1 182-1.7 183.03-3.3 186.53-9.2L186.53-9.2Q195.13-24.15 195.13-27.2L195.13-27.2Q195.13-28 194.58-28L194.58-28Q193.78-28 192.23-26.65L192.23-26.65Q186.68-22 180.43-14.5 174.18-7 171.03-2.05ZM219.73-10.6L219.73-10.6Q219.73-8.85 216.38-4.75L216.38-4.75Q212.43 0.1 209.63 0.1L209.63 0.1 208.83 0.1Q207.53 0.1 206.78-1.25L206.78-1.25Q206.18-2.2 206.18-3.35L206.18-3.35Q206.18-6.35 210.55-11.78 214.93-17.2 217.63-17.2L217.63-17.2Q220.18-17.2 220.18-14.5L220.18-14.5Q220.18-13.8 219.93-12.7L219.93-12.7Q219.98-12.55 220.88-12.55 221.78-12.55 223.63-13.5L223.63-13.5Q223.58-12.65 219.68-11.05L219.68-11.05Q219.73-10.85 219.73-10.6ZM216.48-13.2L216.48-13.2Q214.78-13.2 211.65-9.2 208.53-5.2 208.53-3.3 208.53-1.4 209.73-1.4L209.73-1.4Q211.88-1.4 215.18-5.3 218.48-9.2 218.48-10.9L218.48-10.9Q217.68-11.35 216.48-13.2ZM234.27-19.65L234.27-19.65Q235.77-19.65 236.82-18.65 237.87-17.65 237.87-15.85L237.87-15.85Q237.87-11.9 231.32-5.95L231.32-5.95Q225.77-0.95 222.37 0.15L222.37 0.15Q221.82 0.15 220.92-0.45 220.02-1.05 220.02-1.55L220.02-1.55Q220.02-2.65 222.42-9 224.82-15.35 225.72-16.1L225.72-16.1Q225.92-16.3 226.37-16.3 226.82-16.3 227.32-15.83 227.82-15.35 227.87-14.7L227.87-14.7Q227.87-14.65 225.4-8.9 222.92-3.15 223.07-2.05L223.07-2.05Q225.22-2.7 230.75-7.3 236.27-11.9 236.27-15.55L236.27-15.55Q236.27-17.75 234.07-18.75L234.07-18.75Q233.72-18.9 233.72-19.2L233.72-19.2Q233.72-19.65 234.27-19.65ZM246.62-20.4Q247.37-20.4 248.05-19.93 248.72-19.45 248.72-18.8 248.72-18.15 248.1-17.68 247.47-17.2 246.72-17.2 245.97-17.2 245.35-17.75 244.72-18.3 244.72-19L244.72-19Q244.72-20.4 246.62-20.4L246.62-20.4ZM237.57 0.55L237.57 0.55Q235.02 0.55 235.02-2.75L235.02-2.75Q235.02-5.45 237.97-10.23 240.92-15 242.72-15.05L242.72-15.05Q243.22-15.05 243.85-14.65 244.47-14.25 244.47-13.85L244.47-13.85Q244.22-13.5 243.87-13.08 243.52-12.65 243.12-12.15 242.72-11.65 242.02-10.73 241.32-9.8 240.67-8.95L240.67-8.95Q236.92-4.1 236.92-2.27 236.92-0.45 238.17-0.45L238.17-0.45Q239.22-0.45 241.02-1.6L241.02-1.6Q245.22-4.2 247.67-7.3L247.67-7.3Q248.57-8.45 248.9-8.45 249.22-8.45 249.22-8.05 249.22-7.65 248.07-6.45 246.92-5.25 246.25-4.55 245.57-3.85 245.32-3.63 245.07-3.4 244.4-2.78 243.72-2.15 243.37-1.9 243.02-1.65 242.37-1.15 241.72-0.65 241.22-0.43 240.72-0.2 240.07 0.1L240.07 0.1Q239.02 0.55 237.57 0.55ZM249.62 0.65L249.62 0.65Q249.07 0.65 248.62 0.5L248.62 0.5Q245.42-0.4 245.42-3.1L245.42-3.1Q245.42-6.6 249.82-11.2 254.22-15.8 257.72-15.8L257.72-15.8Q258.87-15.8 259.59-15.18 260.32-14.55 260.32-13.65L260.32-13.65Q260.32-10.85 256.09-8.3 251.87-5.75 249.22-5.75L249.22-5.75Q248.82-5.75 248.52-5.85L248.52-5.85Q247.77-4.5 247.77-3L247.77-3Q247.77-0.4 250.24-0.4 252.72-0.4 256.67-3.75L256.67-3.75Q259.72-6.2 261.87-8.95L261.87-8.95Q262.32-9.55 262.64-9.55 262.97-9.55 262.97-9.25 262.97-8.95 262.57-8.4L262.57-8.4Q259.87-4.85 256.07-2.1 252.27 0.65 249.62 0.65ZM259.07-13.75L259.07-13.75Q259.07-14.35 257.79-14.35 256.52-14.35 254.17-12.4L254.17-12.4Q251.02-9.8 249.27-6.95L249.27-6.95Q249.57-6.85 249.92-6.85L249.92-6.85Q251.82-6.85 254.99-8.88 258.17-10.9 258.97-13.3L258.97-13.3Q259.07-13.55 259.07-13.75Z"
+                      opacity="1"
+                      transform="matrix(1,0,0,1,0,0)"
+                      fill="#aaadae"
+                      data-fill-palette-color="primary"
+                    />
+                  </g>
+
+                  <g
+                    transform="translate(170 5), scale(0.8)"
+                    height="75"
+                    width="75"
+                  >
+                    <rect
+                      x="34.571"
+                      y="16.321"
+                      fill="#0db0b9"
+                      width="5.716"
+                      height="5.716"
+                      data-fill-palette-color="accent"
+                    />
+                    <rect
+                      x="34.571"
+                      y="28.368"
+                      fill="#0db0b9"
+                      width="5.716"
+                      height="5.716"
+                      data-fill-palette-color="accent"
+                    />
+                    <rect
+                      x="34.571"
+                      y="40.416"
+                      fill="#0db0b9"
+                      width="5.716"
+                      height="5.716"
+                      data-fill-palette-color="accent"
+                    />
+                    <rect
+                      x="34.571"
+                      y="52.464"
+                      fill="#0db0b9"
+                      width="5.716"
+                      height="5.716"
+                      data-fill-palette-color="accent"
+                    />
+                    <rect
+                      x="80.349"
+                      y="16.321"
+                      fill="#0db0b9"
+                      width="5.716"
+                      height="5.716"
+                      data-fill-palette-color="accent"
+                    />
+                    <rect
+                      x="80.349"
+                      y="28.368"
+                      fill="#0db0b9"
+                      width="5.716"
+                      height="5.716"
+                      data-fill-palette-color="accent"
+                    />
+                    <rect
+                      x="80.349"
+                      y="40.416"
+                      fill="#0db0b9"
+                      width="5.716"
+                      height="5.716"
+                      data-fill-palette-color="accent"
+                    />
+                    <rect
+                      x="80.349"
+                      y="52.464"
+                      fill="#0db0b9"
+                      width="5.716"
+                      height="5.716"
+                      data-fill-palette-color="accent"
+                    />
+
+                    <path
+                      fill="#0db0b9"
+                      d="M52.324 50.356c-0.188 0-0.375-0.048-0.546-0.142-0.354-0.199-0.572-0.572-0.572-0.975V26.271c0-0.404 0.218-0.777 0.572-0.975 0.354-0.194 0.786-0.19 1.13 0.024l18.704 11.483c0.332 0.203 0.532 0.563 0.532 0.951 0 0.389-0.201 0.749-0.532 0.951L52.909 50.19C52.73 50.301 52.527 50.356 52.324 50.356zM53.442 28.268v18.974l15.45-9.488L53.442 28.268z"
+                      data-fill-palette-color="accent"
+                    />
+
+                    <path
+                      fill="#0db0b9"
+                      d="M81.978 8.301c4.025 0 7.3 3.275 7.3 7.3V59.3c0 4.025-3.275 7.3-7.3 7.3H38.279c-4.025 0-7.3-3.275-7.3-7.3V15.601c0-4.025 3.275-7.3 7.3-7.3H81.978M81.978 6.066H38.279c-5.266 0-9.535 4.269-9.535 9.535V59.3c0 5.266 4.269 9.535 9.535 9.535h43.699c5.266 0 9.535-4.269 9.535-9.535V15.601C91.512 10.335 87.243 6.066 81.978 6.066L81.978 6.066z"
+                      data-fill-palette-color="accent"
+                    />
+
+                    <path
+                      fill="#0db0b9"
+                      d="M74.63 71.069h-2.299l0.225 0.924c0.478 1.957 0.164 3.985-0.884 5.706-1.048 1.722-2.704 2.931-4.661 3.409l-38.573 9.386c-1.953 0.474-3.98 0.164-5.706-0.886-1.722-1.047-2.931-2.704-3.409-4.661l-9.383-38.57c-0.478-1.957-0.161-3.985 0.886-5.706 1.047-1.722 2.704-2.931 4.661-3.409l11.023-2.682V32.28l-11.551 2.809c-2.538 0.618-4.683 2.187-6.043 4.419-1.357 2.23-1.765 4.858-1.148 7.396l9.386 38.57c0.615 2.538 2.184 4.683 4.417 6.043 1.552 0.943 3.293 1.429 5.065 1.429 0.775 0 1.558-0.094 2.331-0.284l38.573-9.386c2.538-0.615 4.683-2.184 6.04-4.417 1.36-2.23 1.765-4.858 1.148-7.396L74.63 71.069z"
+                      data-fill-palette-color="accent"
+                    />
+                  </g>
+                </svg>
+              </a>
               <div>
                 <a
                   href="https://www.linkedin.com/in/elham-estedlali/"
@@ -932,12 +2388,319 @@
       </footer>
     </div>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
-      integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="/src/app.js" defer></script>
+    <script>
+      //it should execute at first load, bz when I'm in the middle of the page and we refresh the page, the menu.sticky isn'i added to the navbar
+      addStickyClassToHeader();
+
+      /*---- Carousel ----*/
+      function initializeCarousel(
+        carouselId,
+        leftIconId,
+        rightIconId,
+        eachImageWidth,
+        imagePadding,
+      ) {
+        const carouselElement = document.getElementById(carouselId);
+        const leftIcon = document.getElementById(leftIconId);
+        const rightIcon = document.getElementById(rightIconId);
+
+        let oneImageWidth = eachImageWidth + imagePadding;
+        let isDragStart = false,
+          isDragging = false,
+          initialDragX,
+          mouseDragDistance;
+
+        function dragStart(event) {
+          //occured on mousedown
+          isDragStart = true;
+          //used to store the previous X-coordinate of the mouse pointer or touch event when the drag starts.
+          initialDragX = event.pageX || event.touches[0].pageX;
+          //used to store the current horizontal scroll position of the carouselElement when the drag starts. initialScrollLeft
+          initialHorizontalScrollPosition = carouselElement.scrollLeft;
+        }
+
+        function showHideIcon() {
+          let maxScrollableWidth =
+            carouselElement.scrollWidth - carouselElement.clientWidth;
+          leftIcon.style.display =
+            carouselElement.scrollLeft == 0 ? "none" : "block";
+          rightIcon.style.display =
+            Math.round(carouselElement.scrollLeft) == maxScrollableWidth
+              ? "none"
+              : "block";
+        }
+
+        leftIcon.addEventListener("click", () => {
+          carouselElement.scrollLeft += -oneImageWidth;
+          setTimeout(() => showHideIcon(), 60); //calling showHideIcons after 60ms
+        });
+
+        rightIcon.addEventListener("click", () => {
+          carouselElement.scrollLeft += oneImageWidth;
+          setTimeout(() => showHideIcon(), 60); //calling showHideIcons after 60ms
+        });
+
+        /*----*/
+
+        function dragCarousel(event) {
+          //occured when mousemove
+
+          // scrolling images to left according to mouse pointer
+          if (!isDragStart) return;
+          event.preventDefault();
+          isDragging = true;
+          carouselElement.classList.add("dragging");
+
+          //Where the mouse is now on the screen minus where the drag started.
+          mouseDragDistance =
+            (event.pageX || event.touches[0].pageX) - initialDragX;
+
+          carouselElement.scrollLeft =
+            initialHorizontalScrollPosition - mouseDragDistance;
+          showHideIcon();
+        }
+
+        function autoSlide() {
+          //bz of: if there is no img left then it start scrolling back
+          //carouselElement.scrollWidth:
+          //// returns the total width of the scrollable content of the carouselElement,
+          //// including any content that overflows beyond the element's visible width.
+          //carouselElement.clientWidth:
+          //// returns the visible width of the carouselElement, which is the width of the element's content area excluding any vertical scrollbar (if present) and padding.
+          let maxScrollableWidth =
+            carouselElement.scrollWidth - carouselElement.clientWidth;
+          if (carouselElement.scrollLeft == maxScrollableWidth) return;
+
+          //making mouseDragDistance value to positive
+          mouseDragDistance = Math.abs(mouseDragDistance);
+
+          //getting difference value that needs to add or reduce from carousel left to take middle img center
+          let valDifference = oneImageWidth - mouseDragDistance;
+
+          //user scrolling to the right
+          if (carouselElement.scrollLeft > initialHorizontalScrollPosition) {
+            return (carouselElement.scrollLeft +=
+              mouseDragDistance > oneImageWidth / 3
+                ? valDifference
+                : mouseDragDistance);
+          }
+          //user scrolling to the left
+          carouselElement.scrollLeft -=
+            mouseDragDistance > oneImageWidth / 3
+              ? valDifference
+              : mouseDragDistance;
+        }
+
+        function dragStop() {
+          //occured when mouseup or mouseleave
+          isDragStart = false;
+          carouselElement.classList.remove("dragging");
+
+          if (!isDragging) return;
+          isDragging = false;
+
+          if (window.matchMedia("(max-width: 390px)").matches) {
+            autoSlide();
+          }
+        }
+
+        carouselElement.addEventListener("mousedown", dragStart);
+        carouselElement.addEventListener("mousemove", dragCarousel);
+        carouselElement.addEventListener("mouseup", dragStop);
+        carouselElement.addEventListener("mouseleave", dragStop);
+      }
+
+      // Call the function with the appropriate arguments for each carousel
+      const firstImageElement = document
+        .getElementById("gallery-carousel")
+        .getElementsByTagName("img")[0];
+      const firstImageWidth = firstImageElement.width;
+
+      initializeCarousel(
+        "gallery-carousel",
+        "gallery-left-icon",
+        "gallery-right-icon",
+        firstImageWidth,
+        15,
+      );
+
+      /*
+const firstCardElement = document
+  .getElementById("actor-carousel")
+  .getElementsByClassName("actor-card")[0];
+const firstCardWidth = firstCardElement.width;
+*/
+      initializeCarousel(
+        "actor-carousel",
+        "actor-left-icon",
+        "actor-right-icon",
+        150,
+        20,
+      );
+
+      /*---- navbar menu ----*/
+      const navLinksElement = document.querySelectorAll(".navbar-item-link");
+      const homepageElement = document.getElementById("homepage");
+      const hamburgerElement = document.querySelector("#hamburger");
+      const navbarContainerElement =
+        document.querySelector(".navbar-container");
+
+      navLinksElement.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          const targetTopOffset = targetElement.offsetTop;
+          window.scrollTo({ top: targetTopOffset, behavior: "smooth" });
+        });
+      });
+
+      homepageElement.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      /*---- Hamburger ----*/
+
+      hamburgerElement.addEventListener("click", () => {
+        hamburgerElement.classList.toggle("active");
+        navbarContainerElement.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".navbar-item-link").forEach((n) =>
+        n.addEventListener("click", () => {
+          hamburgerElement.classList.remove("active");
+          navbarContainerElement.classList.remove("active");
+        }),
+      );
+
+      /*---- sticky menu ----*/
+      function addStickyClassToHeader() {
+        let header = document.getElementById("navbar");
+        header.classList.toggle("sticky", window.scrollY > 0);
+      }
+
+      /*---- Active menu link by window scroll----*/
+
+      const sections = document.querySelectorAll("section");
+
+      function findTargetByWindowScroll() {
+        //const  = window.scrollY;
+        const currentScrollPosition = window.pageYOffset;
+
+        // Loop through each section and check if it is in view
+        sections.forEach((section, index) => {
+          const sectionTop = section.offsetTop - 250;
+          const sectionHeight = section.offsetHeight;
+
+          if (
+            currentScrollPosition >= sectionTop &&
+            currentScrollPosition < sectionTop + sectionHeight
+          ) {
+            // If the section is in view, add the "active-navbar-item-link" class to the corresponding menu link
+            navLinksElement.forEach((link) => {
+              link.classList.remove("active-by-scroll");
+            });
+            //console.log(navLinksElement[index]);
+            navLinksElement[index].classList.add("active-by-scroll");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", () => {
+        addStickyClassToHeader();
+        findTargetByWindowScroll();
+      });
+
+      /*---- footer ----*/
+
+      const submitElement = document.querySelector("#submit");
+
+      submitElement.addEventListener("click", (event) => {
+        const userEmail = document.querySelector("#email").value;
+        event.preventDefault();
+        if (userEmail.includes("@") && userEmail.includes(".com")) {
+          alert(
+            `Thank you for getting in touch with us, ${userEmail}! We will get back to you as soon as possible.`,
+          );
+        } else {
+          alert("Please enter a valid email.");
+        }
+      });
+
+      /*--------*/
+
+      const funnyText = [
+        "Emotions can’t be allowed to interfere with what is right.<br/>(John Smith)",
+        "A man is only ever as strong as the people around him: The community he serves and the family he is sworn to protect. Whatever strength he has, he draws from them. And for them, he must be prepared to give everything.<br/>(John Smith)",
+        "People are capable of anything. Especially when they’re desperate.<br/>(Joe Blake)",
+        "We’ve seen things, you and me. Other worlds. Other lives. We have that in common. It’s unbearable. To be able to look through that door and glimpse all the people you could have been. And to know that out of all of them, this is the one you became.<br/>(John Smith)",
+        "This place and this world will not last if we don’t change it for the better. It’s only a matter of time; it will get worse.<br/>(Juliana Crain)",
+        "The only way to view the truth of life, is to stand apart from it, to see the consequence of every thought, every action. But still, we are bound by time and space, unable to steer our destiny.<br/>(Nobusuke Tagomi)",
+        "We all have flaws, all of us, every single one of us. It makes us who we are.<br/>(Juliana Crain)",
+        "The cultures we were born into mean that we do things differently. And yet I suspect that we also hold many of the same things in the highest esteem.<br/>(Nobusuke Tagomi)",
+        "You don’t need anybody to keep you down because you got your own little inner fascist right there telling you what you can and cannot do. That’s how you let them win.<br/>(Mark Sampson)",
+        "There comes a time when all men must bear the weight of their responsibility.<br/>(Inspector Kido)",
+        "It takes a lot of effort not to be free. I kept my head down for so long, I forgot what it feels like to stand up.<br/>(Frank Frink)",
+      ];
+      const quoteInfoNextElement = document.getElementById("quote-info-next");
+      quoteInfoNextElement.addEventListener("click", showQuote);
+      const quoteTextElement = document.getElementById("quote-text");
+      const quoteInfoNoElement = document.getElementById("quote-info-no");
+
+      let funnyTextIndex = 1;
+
+      function showQuote() {
+        if (funnyTextIndex === 10) {
+          funnyTextIndex = 0;
+        }
+        quoteTextElement.innerHTML = funnyText[funnyTextIndex];
+        //console.log(funnyTextIndex);
+        //console.log(`(${funnyTextIndex + 1}/5)`);
+        quoteInfoNoElement.textContent = `(${funnyTextIndex + 1}/10)`;
+        funnyTextIndex += 1;
+      }
+
+      /*---- load more ----*/
+      let loadMoreButtonElement = document.getElementById("load-more-button");
+      let currentItem = 6;
+
+      loadMoreButtonElement.addEventListener("click", () => {
+        let actors = document.querySelectorAll(".actor-container .actor-card");
+        for (let i = currentItem; i < currentItem + 12; i++) {
+          //console.log(actors[i]);
+          actors[i].style.display = "flex";
+        }
+        currentItem += 12;
+        //console.log(currentItem);
+        if (currentItem >= actors.length) {
+          loadMoreButtonElement.style.display = "none";
+        }
+      });
+
+      /*-----*/
+
+      /*
+showMovieData();
+
+async function showMovieData() {
+  const apiKey = "372bdb5158eb7bdb8164d0880cb274d8";
+  const apiURL =
+    "https://api.themoviedb.org/3/discover/movie?api_key=" +
+    apiKey +
+    "&sort_by=popularity.desc";
+  var result = await axios.get(apiURL);
+
+  console.log(result);
+  result = result.data.results;
+  result.map(function (cur, index) {
+    carousel.insertAdjacentHTML(
+      "beforeend",
+      `<img class="img-${index} carousel-img" src="https://image.tmdb.org/t/p/w185/${cur.poster_path}" />`,
+    );
+  });
+}
+*/
+    </script>
   </body>
 </html>
