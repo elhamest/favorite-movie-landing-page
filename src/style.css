@@ -805,6 +805,7 @@ footer .designed-by {
 .suggested-text a {
   text-decoration: none;
   cursor: pointer;
+  color: var(--main-color);
 }
 .suggested-text a:visited,
 .suggested-text a:active {
@@ -921,7 +922,7 @@ footer .designed-by {
     margin: 30px 60px 40px;
   }
   .suggested-container {
-    gap: 30px 30px;
+    gap: 30px 50px;
   }
 }
 
@@ -1093,8 +1094,8 @@ footer .designed-by {
   }
 
   .suggested-container {
-    gap: 20px;
-  }
+    gap: 50px;
+    justify-content: space-around;  
 }
 
 @media (max-width: 505px) {
