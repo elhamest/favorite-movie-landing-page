@@ -248,11 +248,11 @@ h2 {
   width: 100%;
 }
 
-.navbar.sticky .navbar-item-link:not(.navbar-item-link-active-by-scroll) {
+.navbar.sticky .navbar-item-link:not(.active-by-scroll) {
   color: var(--dark-color);
 }
 
-.navbar-item-link.navbar-item-link-active-by-scroll {
+.navbar-item-link.active-by-scroll {
   color: var(--main-color);
   font-weight: 600;
 }
@@ -988,7 +988,7 @@ footer .designed-by {
   .navbar .navbar-item-link {
     padding-bottom: 0;
   }
-  .navbar.sticky .navbar-item-link:not(.navbar-item-link-active-by-scroll) {
+  .navbar.sticky .navbar-item-link:not(.active-by-scroll) {
     color: #fff;
   }
 

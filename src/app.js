@@ -203,9 +203,10 @@ function findTargetByWindowScroll() {
     ) {
       // If the section is in view, add the "active-navbar-item-link" class to the corresponding menu link
       navLinksElement.forEach((link) => {
-        link.classList.remove("navbar-item-link-active-by-scroll");
+        link.classList.remove("active-by-scroll");
       });
-      navLinksElement[index].classList.add("navbar-item-link-active-by-scroll");
+      //console.log(navLinksElement[index]);
+      navLinksElement[index].classList.add("active-by-scroll");
     }
   });
 }
@@ -258,8 +259,8 @@ function showQuote() {
     funnyTextIndex = 0;
   }
   quoteTextElement.innerHTML = funnyText[funnyTextIndex];
-  console.log(funnyTextIndex);
-  console.log(`(${funnyTextIndex + 1}/5)`);
+  //console.log(funnyTextIndex);
+  //console.log(`(${funnyTextIndex + 1}/5)`);
   quoteInfoNoElement.textContent = `(${funnyTextIndex + 1}/10)`;
   funnyTextIndex += 1;
 }
@@ -271,7 +272,7 @@ let currentItem = 6;
 loadMoreButtonElement.addEventListener("click", () => {
   let actors = document.querySelectorAll(".actor-container .actor-card");
   for (var i = currentItem; i < currentItem + 3; i++) {
-    console.log(actors[i]);
+    //console.log(actors[i]);
     actors[i].style.display = "flex";
   }
   currentItem += 3;
