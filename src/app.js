@@ -271,11 +271,12 @@ let currentItem = 6;
 
 loadMoreButtonElement.addEventListener("click", () => {
   let actors = document.querySelectorAll(".actor-container .actor-card");
-  for (let i = currentItem; i < currentItem + 3; i++) {
+  for (let i = currentItem; i < currentItem + 12; i++) {
     //console.log(actors[i]);
     actors[i].style.display = "flex";
   }
-  currentItem += 3;
+  currentItem += 12;
+  console.log(currentItem);
   if (currentItem >= actors.length) {
     loadMoreButtonElement.style.display = "none";
   }
