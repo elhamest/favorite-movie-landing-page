@@ -10,7 +10,7 @@
 }
 
 body {
-  min-height: 200vh; /*man 100vh gozashte boodam*/
+  min-height: 100vh; /*man 100vh gozashte boodam*/
   font-family: "Open Sans", sans-serif;
   min-width: 320px;
 }
@@ -745,6 +745,58 @@ footer .designed-by {
   font-weight: 600;
 }
 
+/*===== Suggested ======*/
+.suggested-wrap {
+  margin: 30px 110px 40px;
+}
+
+.suggested-wrap h2 {
+  color: var(--main-color);
+  margin: 0;
+  margin-bottom: 30px;
+}
+.suggested-wrap h3 {
+  color: var(--main-color);
+  margin: 0;
+  margin-top: 3px;
+  font-size: 16px;
+}
+.suggested-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 30px 20px;
+}
+
+.suggested-container .suggested-card p {
+  font-size: 12px;
+  color: var(--dark-color);
+}
+.suggested-container .suggested-card img {
+  width: 130px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.suggested-text .rate-container {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  font-size: 12px;
+  user-select: none;
+}
+.suggested-text a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.suggested-text a:visited,
+.suggested-text a:active {
+  color: var(--main-color);
+}
+
 /*========== media ===========*/
 
 @media (max-width: 1024px) {
@@ -846,6 +898,15 @@ footer .designed-by {
 
   .actor-card .actor-card-text {
     text-align: center;
+  }
+}
+
+@media (max-width: 985px) {
+  .suggested-wrap {
+    margin: 30px 60px 40px;
+  }
+  .suggested-container {
+    gap: 30px 30px;
   }
 }
 
@@ -1013,6 +1074,16 @@ footer .designed-by {
     background-color: #fff;
     padding: 30px 10px 30px 25px;
     text-align: center;
+  }
+
+  .suggested-container {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 505px) {
+  .suggested-container {
+    flex-direction: column;
   }
 }
 
