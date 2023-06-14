@@ -180,7 +180,7 @@ document.querySelectorAll(".navbar-item-link").forEach((n) =>
 
 /*---- sticky menu ----*/
 function addStickyClassToHeader() {
-  var header = document.getElementById("navbar");
+  let header = document.getElementById("navbar");
   header.classList.toggle("sticky", window.scrollY > 0);
 }
 
@@ -252,7 +252,7 @@ quoteInfoNextElement.addEventListener("click", showQuote);
 const quoteTextElement = document.getElementById("quote-text");
 const quoteInfoNoElement = document.getElementById("quote-info-no");
 
-var funnyTextIndex = 1;
+let funnyTextIndex = 1;
 
 function showQuote() {
   if (funnyTextIndex === 10) {
@@ -271,7 +271,7 @@ let currentItem = 6;
 
 loadMoreButtonElement.addEventListener("click", () => {
   let actors = document.querySelectorAll(".actor-container .actor-card");
-  for (var i = currentItem; i < currentItem + 3; i++) {
+  for (let i = currentItem; i < currentItem + 3; i++) {
     //console.log(actors[i]);
     actors[i].style.display = "flex";
   }
