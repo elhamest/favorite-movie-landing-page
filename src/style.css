@@ -644,10 +644,9 @@ footer .designed-by {
   align-items: center;
 }
 
-.trailer-container video {
+.trailer-container .video img {
   min-width: 500px;
   max-width: 500px;
-  width: 100%;
   height: auto;
   border-radius: 5px;
   padding-right: 50px;
@@ -825,9 +824,10 @@ footer .designed-by {
     padding: 5px 25px 5px 20px;
   }
 
-  .trailer-container video {
+  .trailer-container .video img {
     min-width: 360px;
     max-width: 400px;
+    height: auto;
     padding: 0 10px 0;
   }
 
