@@ -586,11 +586,12 @@ footer .designed-by {
 }
 .actor-card .actor-card-text-name a {
   text-decoration: none;
+  color: var(--dark-color);
 }
 
 .actor-card .actor-card-text-name a:active,
 .actor-card .actor-card-text-name a:visited {
-  color: #000;
+  color: var(--dark-color);
 }
 
 .actor-card .actor-card-text-name a:hover {
