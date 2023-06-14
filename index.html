@@ -672,10 +672,10 @@
         align-items: center;
       }
 
-      .trailer-container .video img {
-        min-width: 500px;
+      .trailer-container iframe {
         max-width: 500px;
-        height: auto;
+        height: 315px;
+        width: 560px;
         border-radius: 5px;
         padding-right: 50px;
         user-select: none;
@@ -853,10 +853,9 @@
           padding: 5px 25px 5px 20px;
         }
 
-        .trailer-container .video img {
-          min-width: 360px;
+        .trailer-container iframe {
           max-width: 400px;
-          height: auto;
+          width: 100%;
           padding: 0 10px 0;
         }
 
@@ -1551,8 +1550,15 @@
         <!-- <h2>Trailer</h2>-->
 
         <div class="trailer-container">
-          <!--
-          <video
+          <iframe
+            src="https://www.youtube.com/embed/Pjs8xVaAC98"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+
+          <!-- <video
             poster="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/628/original/trailer-1024.jpg?1686733292"
             controls
           >
@@ -1560,15 +1566,14 @@
               src="https://drive.google.com/file/d/1GQWz8PbrxzWgLHPCYNK81SbqZRYXdU5_/view?usp=drive_link"
               type="video/mp4"
             />
-          </video>
-        -->
+          </video> -->
 
-          <div class="video">
+          <!-- <div class="video">
             <img
               src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/085/685/original/poster-600-1.jpg?1686752644"
               alt="The man in the high castle"
             />
-          </div>
+          </div> -->
 
           <!-- Quotes -->
           <div class="quote">
